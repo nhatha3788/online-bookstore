@@ -1,0 +1,45 @@
+.content {
+  width: 80%;
+}
+.main-container {
+  background-color: rgb(137, 136, 136);
+}
+.profile ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+}
+
+.profile-title {
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.profile {
+  background-color: white;
+  border-radius: 5px;
+  margin: 5px 0;
+  padding: 15px;
+}
+
+.profile ul li {
+  position: relative;
+}
+
+.profile ul button {
+  padding: 0;
+  border: none;
+  position: absolute;
+  background-color: white;
+  right: 10px;
+  top: 5px;
+}
+
+.submit-button {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}

@@ -1,0 +1,29 @@
+.content {
+  width: 80%;
+}
+.main-container {
+  background-color: rgb(137, 136, 136);
+}
+
+.history {
+  background-color: white;
+  border-radius: 5px;
+  margin: 5px 0;
+  padding: 15px;
+}
+
+.history-status {
+  background-color: rgb(180, 180, 180);
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.history-title {
+  font-weight: 700;
+  font-size: larger;
+}
+
+.status-count p {
+  font-weight: 600;
+}
