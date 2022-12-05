@@ -11,7 +11,8 @@ if(isset($_POST['login'])){
         $row = mysqli_fetch_assoc($result);
         if($row['verify_status'] == 1){
             $_SESSION['customer_id'] = $row['customer_id'];
-            header("location: ../LoginAndSignup/home.php");
+            $id = $row['customer_id'];
+            header("location: ../customer/account.php?id=$id");
         }else{
             $_SESSION['status'] = "Email chưa xác thực.";
         }

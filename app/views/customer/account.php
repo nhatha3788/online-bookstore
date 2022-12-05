@@ -1,3 +1,6 @@
+<?php
+    include('../../controller/ctmAccount_ctl.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,15 +26,30 @@
                 </div>
                 <div class="col-9">
                     <div class="profile">
-                        <form method="" action="">
+                        <form method="post" action="">
                             <p class="profile-title">
                                 THÔNG TIN TÀI KHOẢN
                             </p>
                             <div class="row">
+                                <?php
+                                    if(!empty($mess)){
+                                            echo "
+                                            <div class='alert alert-danger' role='alert'> 
+                                            $mess
+                                            </div>
+                                            ";  
+                                    }
+                                    if(isset($succMess)){
+                                        echo "
+                                        <div class='alert alert-primary' role='alert'> 
+                                        $succMess
+                                        </div>
+                                        ";  
+                                    }
+                                ?>
                                 <div class="col-4">
                                     <ul>
-                                        <li><label for="lastname" class="form-label">Họ*</label></li>
-                                        <li><label for="name" class="form-label">Tên*</label></li>
+                                        <li><label for="name" class="form-label">Họ và Tên*</label></li>
                                         <li><label for="phone" class="form-label">Số điện thoại*</label></li>
                                         <li><label for="email" class="form-label">Email*</label></li>
                                     </ul>
@@ -40,15 +58,11 @@
                                    <ul>
                                     <li>
                                         <button class="edit-button"><i class="fa-solid fa-pen-to-square"></i></button>
-                                        <input type="text" class="form-control" id="lastname" value="Nguyễn">
-                                    </li>
-                                    <li>
-                                        <button class="edit-button"><i class="fa-solid fa-pen-to-square"></i></button>
-                                        <input type="text" class="form-control" id="name" value="Văn An">
+                                        <input type="text" class="form-control" id="name" value="<?php echo $name;?>">
                                     </li>
                                     <li>
                                         <button type="button" class="edit-button" id="phoneBtn" data-bs-toggle="modal" data-bs-target="#phoneBackdrop"><i class="fa-solid fa-pen-to-square"></i></button>
-                                        <input type="text" class="form-control" id="phone" value="0945509542" readonly>
+                                        <input type="text" class="form-control" id="phone" name="phone" value="<?php echo $phone_number;?>" readonly>
                                         <div class="modal fade " id="phoneBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="phoneBackdropLabel" aria-hidden="true">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
@@ -58,10 +72,10 @@
                                                 </div>
                                                 <div class="modal-body">
                                                     <label for="newPhone" class="form-label">Nhập số điện thoại mới</label>
-                                                    <input type="email" class="form-control" id="newPhone">
+                                                    <input type="text" class="form-control" id="newPhone" name="newPhone">
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button type="button" class="btn btn-primary confirm-button">Xác nhận</button>
+                                                    <button type="submit" class="btn btn-primary confirm-button" name="newPhone-sm">Xác nhận</button>
                                                 </div>
                                                 </div>
                                             </div>
@@ -69,7 +83,7 @@
                                     </li>
                                     <li>
                                         <button type="button" class="edit-button" id="emailBtn" data-bs-toggle="modal" data-bs-target="#emailBackdrop"><i class="fa-solid fa-pen-to-square"></i></button>
-                                        <input type="text" class="form-control" id="email" value="an@gmail.com" readonly>
+                                        <input type="text" class="form-control" id="email" name="email" value="<?php echo $email;?>" readonly>
                                         <div class="modal fade " id="emailBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="emailBackdropLabel" aria-hidden="true">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
@@ -79,10 +93,10 @@
                                                 </div>
                                                 <div class="modal-body">
                                                     <label for="newEmail" class="form-label">Nhập email mới</label>
-                                                    <input type="email" class="form-control" id="newEmail">
+                                                    <input type="email" class="form-control" id="newEmail" name="newEmail">
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button type="button" class="btn btn-primary confirm-button">Xác nhận</button>
+                                                    <button type="submit" class="btn btn-primary confirm-button" name="newEmail-sm">Xác nhận</button>
                                                 </div>
                                                 </div>
                                             </div>
@@ -92,7 +106,7 @@
                                 </div>
                             </div>
                             <div class="submit-button">
-                                <button type="submit" class="btn btn-danger">Lưu thay đổi</button>
+                                <button type="submit" class="btn btn-danger" name="change-value-account">Lưu thay đổi</button>
                             </div>
                         </form>
                     </div>
