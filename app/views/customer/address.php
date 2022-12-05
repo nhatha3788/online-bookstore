@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bookstore</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <script src="../../js/jquery.js"></script>
+   
     <link rel="stylesheet" href="../../../public/css/header.css">
     <link rel="stylesheet" href="../../../public/css/footer.css">
     <link rel="stylesheet" href="../../../public/css/account/sidebar.css">
@@ -51,13 +51,47 @@
                                             <td>
                                                 <div class="action">
                                                 <button type="button" class="btn btn-primary">Chọn</button>
-                                                <button type="button" class="btn btn-success">Chỉnh sửa</button>
+                                                <button type="button"class="btn btn-success" id="emailBtn" data-bs-toggle="modal" data-bs-target="#editReceiveAddress">Chỉnh sửa</button>
+                                                <div class="modal fade " id="editReceiveAddress" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="emailBackdropLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h1 class="modal-title fs-5" id="emailBackdropLabel">THAY ĐỔI ĐỊA CHỈ NHẬN HÀNG</h1>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <label for="newEmail" class="form-label">Nhập địa chỉ mới</label>
+                                                            <input type="email" class="form-control" id="newEmail">
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-primary confirm-button">Xác nhận</button>
+                                                        </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 </div>
                                             </td>
                                             </tr>
                                         </tbody>
                                         </table>
-                                        <button type="submit" class="btn btn-danger">Thêm địa chỉ</button>
+                                                <button type="button"class="btn btn-danger" id="emailBtn" data-bs-toggle="modal" data-bs-target="#newReceiveAddress">Thêm địa chỉ</button>
+                                                <div class="modal fade " id="newReceiveAddress" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="emailBackdropLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h1 class="modal-title fs-5" id="emailBackdropLabel">THÊM ĐỊA CHỈ NHẬN HÀNG</h1>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <label for="newEmail" class="form-label">Nhập địa chỉ mới</label>
+                                                            <input type="email" class="form-control" id="newEmail">
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-primary confirm-button">Xác nhận</button>
+                                                        </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                     </div>
                                     <div>
                                         <table class="table ">
@@ -73,13 +107,47 @@
                                                 <td>
                                                     <div class="action">
                                                     <button type="button" class="btn btn-primary">Chọn</button>
-                                                    <button type="button" class="btn btn-success">Chỉnh sửa</button>
+                                                    <button type="button" class="btn btn-success" id="emailBtn" data-bs-toggle="modal" data-bs-target="#editPayAddress">Chỉnh sửa</button>
+                                                    <div class="modal fade " id="editPayAddress" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="emailBackdropLabel" aria-hidden="true">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h1 class="modal-title fs-5" id="emailBackdropLabel">THAY ĐỔI ĐỊA CHỈ THANH TOÁN</h1>
+                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <label for="newEmail" class="form-label">Nhập địa chỉ mới</label>
+                                                                <input type="email" class="form-control" id="newEmail">
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-primary confirm-button">Xác nhận</button>
+                                                            </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                     </div>
                                                 </td>
                                                 </tr>
                                             </tbody>
                                         </table>
-                                        <button type="submit" class="btn btn-danger">Thêm địa chỉ</button>
+                                        <button type="button"class="btn btn-danger" id="emailBtn" data-bs-toggle="modal" data-bs-target="#newPayAddress">Thêm địa chỉ</button>
+                                                <div class="modal fade " id="newPayAddress" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="emailBackdropLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h1 class="modal-title fs-5" id="emailBackdropLabel">THÊM ĐỊA CHỈ THANH TOÁN</h1>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <label for="newEmail" class="form-label">Nhập địa chỉ mới</label>
+                                                            <input type="email" class="form-control" id="newEmail">
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-primary confirm-button">Xác nhận</button>
+                                                        </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                     </div>
                                 </div>
                             </div>
@@ -90,6 +158,8 @@
         </div>
     </div>
     <?php include '../components/footer.php';?>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></scrip>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../../js/jquery.js"></script>
+<script src="../../js/function.js"></script>
 </body>
 </html>

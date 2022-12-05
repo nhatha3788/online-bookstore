@@ -29,7 +29,7 @@
   position: relative;
 }
 
-.profile ul button {
+.profile .edit-button {
   padding: 0;
   border: none;
   position: absolute;
@@ -43,3 +43,7 @@
   justify-content: center;
   margin-top: 20px;
 }
+/* 
+.modal-footer {
+  justify-content: center;
+} */
