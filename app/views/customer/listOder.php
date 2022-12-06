@@ -27,8 +27,8 @@
                             <td>$row[cost]</td>
                             <td>
                                 <div class='action'>
-                                <button type='button' class='btn btn-primary'>Chi tiết</button>
-                            </div>
+                                <a href='order-detail.php?oder_id=$row[oder_id]'> <button type='button' class='btn btn-primary'>Chi tiết</button></a>
+                                </div>
                             </td>
                             </tr>
                     </tbody>
