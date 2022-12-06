@@ -1,10 +1,9 @@
 .footer {
-  max-width: 1280px;
+  max-width: 1304px;
   width: 100%;
   background-color: rgb(203, 201, 201);
-  margin: auto;
+  margin: 10px auto;
 }
-
 .footer-logo {
   border-right: 1px solid black;
   display: flex;
