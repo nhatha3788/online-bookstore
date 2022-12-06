@@ -1,7 +1,7 @@
 <div class="container-fluid footer">
     <div class="row">
         <div class="col-3 footer-logo" >
-            <a href=""><img src="../../../public/images/logo/hcmut-white.png" alt="logo"></a>
+            <a href=""><img src="../../../public/images/logo/logo.png" alt="logo"></a>
             <p>Lầu 5, 387-389 Hai Bà Trưng Quận 3 TP HCM</p>
             <p>Công Ty Cổ Phần Phát Hành Sách TP HCM - FAHASA60</p>
             <p>62 Lê Lợi, Quận 1, TP. HCM, Việt Nam</p>
