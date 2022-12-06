@@ -37,6 +37,37 @@
                 }
             }
         }
+
+        // ##########################################################
+        // ##########################################################
+        // ##########################################################
+        // for address
+
+        $db_account_add="SELECT * FROM `address` WHERE customer_id='$customer_id'";
+        $db_account_add_run = mysqli_query($conn,$db_account_add);
+        $temp_add_run = mysqli_query($conn,$db_account_add);
+        if(!$db_account_add_run){
+            header('location: ../LoginAndSignup/home.php');
+            exit(0);
+        }else{
+            while($row = mysqli_fetch_array($db_account_add_run)){
+                if($row['is_default'] == 1){
+                    $default_add = $row['address'];
+                    break;
+                }
+            }
+        }
+        // ##########################################################
+        // ##########################################################
+        // ##########################################################
+        // for address
+
+        $db_account_oder="SELECT * FROM `oder` WHERE customer_id='$customer_id' AND `status`!='0'";
+        $db_account_oder_run = mysqli_query($conn,$db_account_oder);
+        if(!$db_account_oder_run){
+            header('location: ../LoginAndSignup/home.php');
+            exit(0);
+        }
     }else{
         header('location: ../LoginAndSignup/login.php');
         exit(0);

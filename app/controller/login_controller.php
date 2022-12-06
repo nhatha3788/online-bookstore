@@ -1,7 +1,10 @@
 <?php
 
 include('../../config.php');
-
+ if(isset($_SESSION['customer_id'])){
+    header('location: ../customer');
+    exit(0);
+ }
 if(isset($_POST['login'])){
     $email = mysqli_real_escape_string($conn, $_POST['email']);
     $pass = mysqli_real_escape_string($conn, $_POST['pass']);
@@ -12,7 +15,7 @@ if(isset($_POST['login'])){
         if($row['verify_status'] == 1){
             $_SESSION['customer_id'] = $row['customer_id'];
             $id = $row['customer_id'];
-            header("location: ../customer/account.php?id=$id");
+            header("location: ../customer");
         }else{
             $_SESSION['status'] = "Email chưa xác thực.";
         }

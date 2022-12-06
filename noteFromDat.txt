@@ -1,0 +1,2 @@
+giỏ hàng hiện tại là đăng xuất ở components/header
+mọi thứ chuyển về ../customer

@@ -1,3 +1,6 @@
+<?php
+  include('../../controller/ctmAccount_ctl.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,63 +28,10 @@
                 <div class="col-9">
                     <div class="history">
                         <p class="history-title">ĐƠN HÀNG CỦA TÔI</p>
-                        <div class="history-status">
-                            <div class="status-count">
-                                <p class="status">Trạng thái: Hoàn tất</p>
-                                <p class="count">Số lượng: 3</p>
-                            </div>
-                            <table class="table ">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Mã đơn</th>
-                                        <th scope="col">Ngày mua</th>
-                                        <th scope="col">Tổng tiền</th>
-                                        <th scope="col"></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>23/04/2022</td>
-                                        <td>100.000</td>
-                                        <td>
-                                            <div class="action">
-                                            <button type="button" class="btn btn-primary">Chi tiết</button>
-                                            </div>
-                                        </td>
-                                        </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="history-status">
-                            <div class="status-count">
-                                <p class="status">Trạng thái: Đang xử lý</p>
-                                <p class="count">Số lượng: 3</p>
-                            </div>
-                                <table class="table ">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">Mã đơn</th>
-                                            <th scope="col">Ngày mua</th>
-                                            <th scope="col">Tổng tiền</th>
-                                            <th scope="col"></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>23/04/2022</td>
-                                            <td>100.000</td>
-                                            <td>
-                                                <div class="action">
-                                                <button type="button" class="btn btn-primary">Chi tiết</button>
-                                            </div>
-                                            </td>
-                                            </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
+
+                        <?php
+                            include('listOder.php');
+                        ?>
                     </div>
                 </div>
             </div>

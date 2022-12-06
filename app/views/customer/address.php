@@ -1,3 +1,6 @@
+<?php
+  include('../../controller/ctmAccount_ctl.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,11 +32,14 @@
                                 <p class="address-subtitle">
                                     Địa chỉ nhận hàng mặc định: 
                                 </p>
-                                <p class="main-address">HCM, VN</p>
-                                <p class="address-subtitle">
-                                    Địa chỉ thanh toán mặc định: 
+                                <p class="main-address">
+                                    <?php
+                                        if(isset($default_add)){
+                                            echo $default_add;
+                                        }
+                                    ?>
                                 </p>
-                                <p class="main-address">HCM, VN</p>
+
                             </div>
                             <div class="col">
                                 <div class="address-table">
@@ -46,32 +52,9 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                            <td>Hồ Chí Minh, Việt Nam</td>
-                                            <td>
-                                                <div class="action">
-                                                <button type="button" class="btn btn-primary">Chọn</button>
-                                                <button type="button"class="btn btn-success" id="emailBtn" data-bs-toggle="modal" data-bs-target="#editReceiveAddress">Chỉnh sửa</button>
-                                                <div class="modal fade " id="editReceiveAddress" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="emailBackdropLabel" aria-hidden="true">
-                                                <div class="modal-dialog">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h1 class="modal-title fs-5" id="emailBackdropLabel">THAY ĐỔI ĐỊA CHỈ NHẬN HÀNG</h1>
-                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <label for="newEmail" class="form-label">Nhập địa chỉ mới</label>
-                                                            <input type="email" class="form-control" id="newEmail">
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-primary confirm-button">Xác nhận</button>
-                                                        </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                </div>
-                                            </td>
-                                            </tr>
+                                        <?php
+                                            include('listAddress.php');
+                                        ?>
                                         </tbody>
                                         </table>
                                                 <button type="button"class="btn btn-danger" id="emailBtn" data-bs-toggle="modal" data-bs-target="#newReceiveAddress">Thêm địa chỉ</button>
@@ -80,62 +63,6 @@
                                                     <div class="modal-content">
                                                         <div class="modal-header">
                                                             <h1 class="modal-title fs-5" id="emailBackdropLabel">THÊM ĐỊA CHỈ NHẬN HÀNG</h1>
-                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <label for="newEmail" class="form-label">Nhập địa chỉ mới</label>
-                                                            <input type="email" class="form-control" id="newEmail">
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-primary confirm-button">Xác nhận</button>
-                                                        </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                    </div>
-                                    <div>
-                                        <table class="table ">
-                                            <thead>
-                                                <tr>
-                                                <th scope="col">Địa chỉ thanh toán</th>
-                                                <th scope="col"></th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                <td>Hồ Chí Minh, Việt Nam</td>
-                                                <td>
-                                                    <div class="action">
-                                                    <button type="button" class="btn btn-primary">Chọn</button>
-                                                    <button type="button" class="btn btn-success" id="emailBtn" data-bs-toggle="modal" data-bs-target="#editPayAddress">Chỉnh sửa</button>
-                                                    <div class="modal fade " id="editPayAddress" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="emailBackdropLabel" aria-hidden="true">
-                                                    <div class="modal-dialog">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h1 class="modal-title fs-5" id="emailBackdropLabel">THAY ĐỔI ĐỊA CHỈ THANH TOÁN</h1>
-                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                <label for="newEmail" class="form-label">Nhập địa chỉ mới</label>
-                                                                <input type="email" class="form-control" id="newEmail">
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-primary confirm-button">Xác nhận</button>
-                                                            </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    </div>
-                                                </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                        <button type="button"class="btn btn-danger" id="emailBtn" data-bs-toggle="modal" data-bs-target="#newPayAddress">Thêm địa chỉ</button>
-                                                <div class="modal fade " id="newPayAddress" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="emailBackdropLabel" aria-hidden="true">
-                                                <div class="modal-dialog">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h1 class="modal-title fs-5" id="emailBackdropLabel">THÊM ĐỊA CHỈ THANH TOÁN</h1>
                                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                         </div>
                                                         <div class="modal-body">

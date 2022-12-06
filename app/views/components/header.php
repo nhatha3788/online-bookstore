@@ -16,7 +16,7 @@
                 </form>
             </div>
             <div class="icons">
-                <a href=""><img src="../../../public/images/header/cart.png" alt="cart" class="header-icon"></a>
+                <a href="../../controller/logout_controller.php"><img src="../../../public/images/header/cart.png" alt="cart" class="header-icon"></a>
                 <a href="../customer/account.php"><img src="../../../public/images/header/user.png" alt="profile" class="header-icon"></a>
             </div>
         </div>
