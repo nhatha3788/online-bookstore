@@ -2,7 +2,7 @@
     <div class="header">
         <div class="header-wrapper">
             <div class="logo">
-                <a href=""><img src="../../../public/images/logo/logo.png" alt="logo"></a>
+                <a href="home.php"><img src="../../../public/images/logo/logo.png" alt="logo"></a>
             </div>
             <div class="menu-header">
                 <img src="../../../public/images/header/menu.png" alt="" class="header-icon menu-toggle">
