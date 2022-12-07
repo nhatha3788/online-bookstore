@@ -6,6 +6,7 @@
         if($row['status'] == 2){
             $status = "Hoàn thành";
         }
+        $cost = number_format($row['cost'], 0, ',', '.') . "đ";
         echo "
         <div class='history-status'>
             <div class='status-count'>
@@ -24,7 +25,7 @@
                         <tr>
                             <td>$row[oder_id]</td>
                             <td>$row[oder_date]</td>
-                            <td>$row[cost]</td>
+                            <td>$cost</td>
                             <td>
                                 <div class='action'>
                                 <a href='order-detail.php?oder_id=$row[oder_id]'> <button type='button' class='btn btn-primary'>Chi tiết</button></a>

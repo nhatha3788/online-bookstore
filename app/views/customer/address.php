@@ -28,6 +28,24 @@
                     <div class="address">
                         <p class="address-title">SỔ ĐỊA CHỈ</p>
                         <div class="row">
+                        <?php
+                            if(!empty($mess)){
+                                echo "
+                                <div class='alert alert-danger' role='alert'> 
+                                $mess
+                                </div>
+                                ";  
+                            }
+                            if(isset($_SESSION['status'])){
+                                $p = $_SESSION['status'];
+                                echo "
+                                <div class='alert alert-primary' role='alert'> 
+                                $p
+                                </div>
+                                ";  
+                              unset($_SESSION['status']);
+                            }
+                        ?>
                             <div class="col">
                                 <p class="address-subtitle">
                                     Địa chỉ nhận hàng mặc định: 
@@ -57,6 +75,7 @@
                                         ?>
                                         </tbody>
                                         </table>
+                                        <form method="post" action="">
                                                 <button type="button"class="btn btn-danger" id="emailBtn" data-bs-toggle="modal" data-bs-target="#newReceiveAddress">Thêm địa chỉ</button>
                                                 <div class="modal fade " id="newReceiveAddress" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="emailBackdropLabel" aria-hidden="true">
                                                 <div class="modal-dialog">
@@ -66,15 +85,16 @@
                                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                         </div>
                                                         <div class="modal-body">
-                                                            <label for="newEmail" class="form-label">Nhập địa chỉ mới</label>
-                                                            <input type="email" class="form-control" id="newEmail">
+                                                            <label for="new-address" class="form-label">Nhập địa chỉ mới</label>
+                                                            <input type="text" class="form-control" id="new-address" name="new-address" value="<?php echo $new_address?>">
                                                         </div>
                                                         <div class="modal-footer">
-                                                            <button type="button" class="btn btn-primary confirm-button">Xác nhận</button>
+                                                            <button type="submit" class="btn btn-primary confirm-button" name="new-address-sm">Xác nhận</button>
                                                         </div>
                                                         </div>
                                                     </div>
                                                 </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>

@@ -1,7 +1,10 @@
 <?php
     include('../config.php');
     include('../model/sendMail_model.php');
-
+    if(isset($_SESSION['customer_id'])){
+        header('location: ../customer');
+        exit(0);
+     }
     if(isset($_POST['change_pass']))
     {
          $pass = mysqli_real_escape_string($conn, $_POST['pass']);

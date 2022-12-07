@@ -3,7 +3,10 @@
     include('../../config.php');
     include('../../model/signup_model.php');
     include('../../model/sendMail_model.php');
-
+    if(isset($_SESSION['customer_id'])){
+        header('location: ../customer');
+        exit(0);
+     }
     $name ="";
     $email ="";
     $succMess="";

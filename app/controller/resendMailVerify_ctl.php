@@ -1,7 +1,10 @@
 <?php
     include('../../config.php');
     include('../../model/sendMail_model.php');
-
+    if(isset($_SESSION['customer_id'])){
+        header('location: ../customer');
+        exit(0);
+     }
     $errmess="";
     if(isset($_POST['resendMail_verify'])){
         if(!empty(trim($_POST['email']))){

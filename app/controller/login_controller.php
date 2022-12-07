@@ -1,5 +1,4 @@
 <?php
-
 include('../../config.php');
  if(isset($_SESSION['customer_id'])){
     header('location: ../customer');

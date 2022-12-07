@@ -39,12 +39,14 @@
                                             </div>
                                             ";  
                                     }
-                                    if(isset($succMess)){
+                                    if(isset($_SESSION['status'])){
+                                        $p = $_SESSION['status'];
                                         echo "
                                         <div class='alert alert-primary' role='alert'> 
-                                        $succMess
+                                        $p
                                         </div>
                                         ";  
+                                      unset($_SESSION['status']);
                                     }
                                 ?>
                                 <div class="col-4">
