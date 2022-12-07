@@ -18,6 +18,13 @@
   margin-bottom: 20px;
 }
 
+.logout-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
 .profile {
   background-color: white;
   border-radius: 5px;
