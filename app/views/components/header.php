@@ -26,21 +26,11 @@
         <div class="menu">
             <div class="row text-left ps-3">
                 <div class="col">
-                    <h5>Sách trong nước</h5>
                     <ul>
-                        <li>Văn học</li>
-                        <li>Kinh tế</li>
-                        <li>Ngoại ngữ</li>
-                        <li>Sách thiếu nhi</li>
-                    </ul>
-                </div>
-                <div class="col">
-                    <h5>Foreign Book</h5>
-                    <ul>
-                        <li>Fiction</li>
-                        <li>Business</li>
-                        <li>Dictionary</li>
-                        <li>Children's Books</li>
+                        <li>Tiểu thuyết</li>
+                        <li>Sách kĩ năng</li>
+                        <li>Thiếu nhi</li>
+                        <li>Sách nước ngoài</li>
                     </ul>
                 </div>
             </div>
