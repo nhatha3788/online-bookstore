@@ -11,12 +11,34 @@
             $name =$rs['name'];
             $email =$rs['email'];
             $phone_number=$rs['phone'];
+            $password = $rs['pass'];
         }else{
             header('location: ../LoginAndSignup/login.php');
             exit(0);
         }
 
-
+        if(isset($_POST['change-pass-sm'])){
+            $oldPass =  mysqli_real_escape_string($conn, $_POST['oldPass']);
+            $newPass =  mysqli_real_escape_string($conn, $_POST['newPass']);
+            $confirm =  mysqli_real_escape_string($conn, $_POST['confirm']);
+            if($oldPass ==  $password){
+                if($newPass === $confirm && strlen($newPass) > 2){
+                    $update_pass = "UPDATE customer SET pass='$newPass' WHERE customer_id='$customer_id' LIMIT 1";
+                    $update_pass_run = mysqli_query($conn, $update_pass);
+                    if($update_pass_run){
+                        $_SESSION['status'] = "Đổi mật khẩu thành công";
+                        header("location: account.php");
+                        exit(0);
+                    }else{
+                        $mess="Something went wrong...";
+                    }
+                }else{
+                    $mess = "Nhập lại mật khẩu mới.";
+                }
+            }else{
+                $mess = "Mật khẩu cũ không đúng.";
+            }
+        }
         if(isset($_POST['newPhone-sm'])){
             $phone_number=$_POST['newPhone'];
         }

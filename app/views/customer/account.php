@@ -54,6 +54,7 @@
                                         <li><label for="name" class="form-label">Họ và Tên*</label></li>
                                         <li><label for="phone" class="form-label">Số điện thoại*</label></li>
                                         <li><label for="email" class="form-label">Email*</label></li>
+                                        <li><label for="email" class="form-label">Password*</label></li>
                                     </ul>
                                 </div>
                                 <div class="col-8">
@@ -99,6 +100,31 @@
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="submit" class="btn btn-primary confirm-button" name="newEmail-sm">Xác nhận</button>
+                                                </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <button type="button" class="edit-button" id="emailBtn" data-bs-toggle="modal" data-bs-target="#passwordBackdrop"><i class="fa-solid fa-pen-to-square"></i></button>
+                                        <input type="text" class="form-control" id="email" value="<?php echo $password;?>" readonly>
+                                        <div class="modal fade " id="passwordBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="emailBackdropLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h1 class="modal-title fs-5" id="emailBackdropLabel">THAY ĐỔI PASSWORD</h1>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <label for="oldPass" class="form-label">Nhập password hiện tại</label>
+                                                    <input type="text" class="form-control" id="oldPass" name="oldPass">
+                                                    <label for="newPass" class="form-label">Nhập password mới</label>
+                                                    <input type="text" class="form-control" id="newPass" name="newPass">
+                                                    <label for="confirm" class="form-label">Nhập lại password mới để xác nhận</label>
+                                                    <input type="text" class="form-control" id="confirm" name="confirm">
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="submit" class="btn btn-primary confirm-button" name="change-pass-sm">Xác nhận</button>
                                                 </div>
                                                 </div>
                                             </div>
