@@ -17,24 +17,24 @@
             </div>
             <div class="icons">
                 <?php
-                    if(!isset($_SESSION['customer_id'])){
-                        echo "
+                if (!isset($_SESSION['customer_id'])) {
+                    echo "
                         <div class='guest-button'>
                             <a href='../LoginAndSignup/signup.php'><button type='button' class='btn btn-primary  btn-sm'>Đăng ký</button></a>
                             <a href='../LoginAndSignup/login.php'><button type='button' class='btn btn-danger  btn-sm'>Đăng nhập</button></a>
                         </div>
                         ";
-                    }else{
-                        echo "
+                } else {
+                    echo "
                         <a href='../checkout/cart.php' class='position-relative'><img src='../../../public/images/header/cart.png' alt='cart' class='header-icon'>
                         </a>
                         ";
-                        echo "
+                    echo "
                         <a href='../customer/account.php' class='profile-link'><img class='header-icon' src='../../../public/images/header/user.png' alt='profile'></a>
                         ";
-                    }
+                }
                 ?>
-                
+
             </div>
         </div>
     </div>

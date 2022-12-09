@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  //   alert("hello");
+  alert("hello");
   $(".menu-toggle").click(function () {
     // console.log($(".menu").css("display"));
     if ($(".menu").css("display") == "none") {
@@ -7,9 +7,9 @@ $(document).ready(function () {
     } else $(".menu").css("display", "none");
   });
 
-  //   $(".menu-wrapper").click(function () {
-  //     console.log("tstestsets");
-  //   });
+  $(".menu-wrapper").click(function () {
+    console.log("tstestsets");
+  });
 
   $("#phoneBtn").on("click", function () {
     $("#phoneBackdrop").modal("show");
@@ -17,5 +17,14 @@ $(document).ready(function () {
 
   $("#emailBtn").on("click", function () {
     $("#emailBackdrop").modal("show");
+  });
+
+  $(".comment-toggle").click(() => {
+    let i = this.id.charAt(4);
+    if ($(`comment${i}`).css("display") == "none") {
+      $(`comment${i}`).css("display", "block");
+    } else {
+      $(`comment${i}`).css("display", "none");
+    }
   });
 });
