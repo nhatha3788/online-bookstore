@@ -30,10 +30,11 @@ include('../../controller/ctmAccount_ctl.php');
                 </div>
                 <div class="col-9">
                     <div class="profile">
-                        <form method="" action="">
+                        <form method="post" action="">
                             <div class="logout-button">
                                 <p class="profile-title">THÔNG TIN TÀI KHOẢN</p>
-                                <button type="button" class="btn btn-outline-danger">Đăng xuất</button>
+                                <a href="../../controller/logout_controller.php">
+                                    <button type="button" class="btn btn-outline-danger">Đăng xuất</button></a>
                             </div>
                             <div class="row">
                                 <?php

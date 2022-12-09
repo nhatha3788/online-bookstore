@@ -36,16 +36,16 @@ include('../../controller/product_ctl.php');
 
             <ul class="category-list">
               <li class="category-item">
-                <a href="home.php?" class="category-item__link">Tiểu thuyết</a>
+                <a href="home.php?category_id=1" class="category-item__link">Tiểu thuyết</a>
               </li>
               <li class="category-item">
-                <a href="#" class="category-item__link">Sách kĩ năng</a>
+                <a href="home.php?category_id=2" class="category-item__link">Sách kĩ năng</a>
               </li>
               <li class="category-item">
-                <a href="#" class="category-item__link">Thiếu nhi</a>
+                <a href="home.php?category_id=3" class="category-item__link">Thiếu nhi</a>
               </li>
               <li class="category-item">
-                <a href="#" class="category-item__link">Sách nước ngoài</a>
+                <a href="home.php?category_id=4" class="category-item__link">Sách nước ngoài</a>
               </li>
             </ul>
           </nav>
@@ -53,32 +53,68 @@ include('../../controller/product_ctl.php');
         <div class="grid_column-10">
           <div class="home-filter">
             <div class="home-filter__paginate">
-              <span class="home-filter__page-num">
-                <span class="home-filter__page-cur">1</span>/14
-              </span>
-              <div class="home-filter_page-control">
-                <a href="" class="home-filter-page-btn"><i class="page-control-icon fa-solid fa-angle-left"></i></a>
-                <a href="" class="home-filter-page-btn"><i class="page-control-icon fa-solid fa-angle-right"></i></a>
-              </div>
+              <ul class="pagination" style="margin-top:20px">
+                <?php
+                $temp = "";
+                if (isset($_GET['category_id'])) $temp = "&category_id=" . $_GET['category_id'];
+                if ($current_page > 1) {
+                  $pre = $current_page - 1;
+                  echo "<li class='page-item'><a class='page-link' href='?page=$pre" . $temp . "'>Previous</a></li>";
+                } else {
+                  echo
+                  "<li class='page-item disabled'>
+                      <a class='page-link' href='#' tabindex='-1' aria-disabled='true'>Previous</a>
+                    </li>";
+                }
+                if ($current_page == $total_page && $total_page >= 3) {
+                  $last_page_mn3 = ($current_page - 2);
+                  echo "<li class='page-item'><a class='page-link' href='?page=$last_page_mn3" . $temp . "'>$last_page_mn3</a></li>";
+                }
+                for ($i = 1; $i <= $total_page; $i++) {
+                  if ($i != $current_page) {
+                    if ($i > $current_page - 2 && $i < $current_page + 2) {
+                      echo "<li class='page-item'><a class='page-link' href='?page=$i" . $temp . "'>$i</a></li>";
+                    }
+                  } else {
+                    echo "
+                      <li class='page-item active' aria-current='page'>
+                        <span class='page-link'>$i</span>
+                      </li>
+                      ";
+                  }
+                }
+                if ($current_page == 1 && $total_page >= 3) {
+                  echo "<li class='page-item'><a class='page-link' href='?page=3" . $temp . "'>3</a></li>";
+                }
+                if ($current_page < $total_page) {
+                  $next = $current_page + 1;
+                  echo "<li class='page-item'><a class='page-link' href='?page=$next" . $temp . "'>Next</a></li>";
+                } else {
+                  echo
+                  "<li class='page-item disabled'>
+                     <a class='page-link' href='#' tabindex='-1' aria-disabled='true'>Next</a>
+                    </li>";
+                }
+                ?>
+              </ul>
             </div>
-          </div>
 
-          <div class="home-product">
-            <?php
-            include('../product/product-list.php');
-            ?>
+            <div class="home-product">
+              <?php
+              include('../product/product-list.php');
+              ?>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <?php
-  include '../components/footer.php';
-  ?>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-  <script src="../../js/jquery.js"></script>
-  <script src="../../js/function.js"></script>
+    <?php
+    include '../components/footer.php';
+    ?>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <script src="../../js/jquery.js"></script>
+    <script src="../../js/function.js"></script>
 </body>
 
 </html>

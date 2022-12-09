@@ -97,7 +97,7 @@
               <input type="submit" value="Đăng ký" name="signup"/> 
             </div>
             <div class="input-field button">
-              <input type="button" onclick="location.href='#';" value="Trang chủ" />
+              <input type="button" onclick="location.href='../customer/home.php';" value="Trang chủ" />
             </div>
           </form>
           <div class="login-signup">
