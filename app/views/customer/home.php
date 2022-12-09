@@ -1,3 +1,6 @@
+<?php
+  include('../../controller/product_ctl.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,372 +33,75 @@
           </h4>
 
           <ul class="category-list">
-            <p class="book_vietnam">Sách trong nước</p>
             <li class="category-item">
-              <a href="#" class="category-item__link">Văn học</a>
+              <a href="home.php?category_id=1" class="category-item__link">Tiểu thuyết</a>
             </li>
             <li class="category-item">
-              <a href="#" class="category-item__link">Kinh tế</a>
+              <a href="home.php?category_id=2" class="category-item__link">Sách kĩ năng</a>
             </li>
             <li class="category-item">
-              <a href="#" class="category-item__link">Ngoại ngữ</a>
+              <a href="home.php?category_id=3" class="category-item__link">Thiếu nhi</a>
             </li>
             <li class="category-item">
-              <a href="#" class="category-item__link">Thiếu nhi</a>
-            </li>
-            <p class="book_foreign">Foreign language</p>
-            <li class="category-item">
-              <a href="#" class="category-item__link">Fiction</a>
-            </li>
-            <li class="category-item">
-              <a href="#" class="category-item__link">Bussiness</a>
-            </li>
-            <li class="category-item">
-              <a href="#" class="category-item__link">Dictionary</a>
-            </li>
-            <li class="category-item">
-              <a href="#" class="category-item__link">Children's Books</a>
+              <a href="home.php?category_id=4" class="category-item__link">Sách nước ngoài</a>
             </li>
           </ul>
         </nav>
       </div>
       <div class="grid_column-10">
         <div class="home-filter">
-          <span class="home-filter__label">Sắp xếp theo</span>
-          <div class="select-input">
-            <span class="select-input__label">Giá</span>
-            <i class="select-input-icon fa-solid fa-angle-down"></i>
-            <ul class="select-input-list">
-              <li>
-                <a href="" class="select-input__link">Giá: Thấp đến Cao</a>
-              </li>
-              <li>
-                <a href="" class="select-input__link">Giá: Cao đến Thấp</a>
-              </li>
-            </ul>
-          </div>
           <div class="home-filter__paginate">
-            <span class="home-filter__page-num">
-              <span class="home-filter__page-cur">1</span>/14
-            </span>
-            <div class="home-filter_page-control">
-              <a href="" class="home-filter-page-btn"
-                ><i class="page-control-icon fa-solid fa-angle-left"></i
-              ></a>
-              <a href="" class="home-filter-page-btn"
-                ><i class="page-control-icon fa-solid fa-angle-right"></i
-              ></a>
-            </div>
+            <ul class="pagination" style="margin-top:20px">
+              <?php
+                  $temp ="";
+                  if(isset($_GET['category_id'])) $temp = "&category_id=".$_GET['category_id'];
+                  if($current_page > 1){
+                    $pre = $current_page - 1;
+                    echo "<li class='page-item'><a class='page-link' href='?page=$pre".$temp."'>Previous</a></li>";
+                  }else{
+                    echo 
+                    "<li class='page-item disabled'>
+                      <a class='page-link' href='#' tabindex='-1' aria-disabled='true'>Previous</a>
+                    </li>";
+                  }
+                  if($current_page == $total_page && $total_page >=3 ){
+                    $last_page_mn3 = ($current_page-2);
+                    echo "<li class='page-item'><a class='page-link' href='?page=$last_page_mn3".$temp."'>$last_page_mn3</a></li>";
+                  }
+                  for($i = 1; $i <= $total_page; $i++ ){
+                    if($i != $current_page){
+                      if($i > $current_page - 2 && $i < $current_page + 2){
+                        echo "<li class='page-item'><a class='page-link' href='?page=$i".$temp."'>$i</a></li>";
+                      }
+                    }else{
+                      echo "
+                      <li class='page-item active' aria-current='page'>
+                        <span class='page-link'>$i</span>
+                      </li>
+                      ";
+                    }
+                  }
+                  if($current_page == 1 && $total_page >=3 ){
+                    echo "<li class='page-item'><a class='page-link' href='?page=3".$temp."'>3</a></li>";
+                  }
+                  if($current_page < $total_page){
+                    $next = $current_page + 1;
+                    echo "<li class='page-item'><a class='page-link' href='?page=$next".$temp."'>Next</a></li>";
+                  }else{
+                    echo 
+                    "<li class='page-item disabled'>
+                     <a class='page-link' href='#' tabindex='-1' aria-disabled='true'>Next</a>
+                    </li>";
+                  }
+              ?>
+            </ul>
           </div>
         </div>
 
         <div class="home-product">
-          <div class="grid_row">
-            <!-- Product item -->
-            <div class="grid_column-2-4">
-              <div class="home-product-item">
-                <div
-                  class="home-product-item__img"
-                  style="
-                    background-image: url(https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_36793.jpg);
-                  "
-                ></div>
-                <h4 class="home-product-item__name">
-                  Nhà giả kim (Tái bản 2020)
-                </h4>
-                <div class="home-product-item__price">
-                  <span class="home-product-item__price-old">60.000đ</span>
-                  <span class="home-product-item__price-new">54.000đ</span>
-                </div>
-                <div class="home-product-item__action">
-                  <span class="home-product-item__rating">
-                    <i class="star-golden fas fa-star"></i>
-                    <i class="star-golden fas fa-star"></i>
-                    <i class="star-golden fas fa-star"></i>
-                    <i class="star-golden fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                  </span>
-                  <span class="home-product-item__rating-num">(100)</span>
-                </div>
-                <span class="home-product-item__sale-off-percent">10%</span>
-              </div>
-              
-            </div>
-            <!-- Product item -->
-            <div class="grid_column-2-4">
-              <div class="home-product-item">
-                <div
-                  class="home-product-item__img"
-                  style="
-                    background-image: url(https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_36793.jpg);
-                  "
-                ></div>
-                <h4 class="home-product-item__name">
-                  Nhà giả kim (Tái bản 2020)
-                </h4>
-                <div class="home-product-item__price">
-                  <span class="home-product-item__price-old">60.000đ</span>
-                  <span class="home-product-item__price-new">54.000đ</span>
-                </div>
-                <div class="home-product-item__action">
-                  <span class="home-product-item__rating">
-                    <i class="star-golden fas fa-star"></i>
-                    <i class="star-golden fas fa-star"></i>
-                    <i class="star-golden fas fa-star"></i>
-                    <i class="star-golden fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                  </span>
-                  <span class="home-product-item__rating-num">(100)</span>
-                </div>
-                <span class="home-product-item__sale-off-percent">10%</span>
-              </div>
-              
-            </div>
-            <!-- Product item -->
-            <div class="grid_column-2-4">
-              <div class="home-product-item">
-                <div
-                  class="home-product-item__img"
-                  style="
-                    background-image: url(https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_36793.jpg);
-                  "
-                ></div>
-                <h4 class="home-product-item__name">
-                  Nhà giả kim (Tái bản 2020)
-                </h4>
-                <div class="home-product-item__price">
-                  <span class="home-product-item__price-old">60.000đ</span>
-                  <span class="home-product-item__price-new">54.000đ</span>
-                </div>
-                <div class="home-product-item__action">
-                  <span class="home-product-item__rating">
-                    <i class="star-golden fas fa-star"></i>
-                    <i class="star-golden fas fa-star"></i>
-                    <i class="star-golden fas fa-star"></i>
-                    <i class="star-golden fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                  </span>
-                  <span class="home-product-item__rating-num">(100)</span>
-                </div>
-                <span class="home-product-item__sale-off-percent">10%</span>
-              </div>
-              
-            </div>
-            <!-- Product item -->
-            <div class="grid_column-2-4">
-              <div class="home-product-item">
-                <div
-                  class="home-product-item__img"
-                  style="
-                    background-image: url(https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_36793.jpg);
-                  "
-                ></div>
-                <h4 class="home-product-item__name">
-                  Nhà giả kim (Tái bản 2020)
-                </h4>
-                <div class="home-product-item__price">
-                  <span class="home-product-item__price-old">60.000đ</span>
-                  <span class="home-product-item__price-new">54.000đ</span>
-                </div>
-                <div class="home-product-item__action">
-                  <span class="home-product-item__rating">
-                    <i class="star-golden fas fa-star"></i>
-                    <i class="star-golden fas fa-star"></i>
-                    <i class="star-golden fas fa-star"></i>
-                    <i class="star-golden fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                  </span>
-                  <span class="home-product-item__rating-num">(100)</span>
-                </div>
-                <span class="home-product-item__sale-off-percent">10%</span>
-              </div>
-              
-            </div>
-            <!-- Product item -->
-            <div class="grid_column-2-4">
-              <div class="home-product-item">
-                <div
-                  class="home-product-item__img"
-                  style="
-                    background-image: url(https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_36793.jpg);
-                  "
-                ></div>
-                <h4 class="home-product-item__name">
-                  Nhà giả kim (Tái bản 2020)
-                </h4>
-                <div class="home-product-item__price">
-                  <span class="home-product-item__price-old">60.000đ</span>
-                  <span class="home-product-item__price-new">54.000đ</span>
-                </div>
-                <div class="home-product-item__action">
-                  <span class="home-product-item__rating">
-                    <i class="star-golden fas fa-star"></i>
-                    <i class="star-golden fas fa-star"></i>
-                    <i class="star-golden fas fa-star"></i>
-                    <i class="star-golden fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                  </span>
-                  <span class="home-product-item__rating-num">(100)</span>
-                </div>
-                <span class="home-product-item__sale-off-percent">10%</span>
-              </div>
-              
-            </div>
-            
-          </div>
-          <div class="grid_row">
-            <!-- Product item -->
-            <div class="grid_column-2-4">
-              <div class="home-product-item">
-                <div
-                  class="home-product-item__img"
-                  style="
-                    background-image: url(https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_36793.jpg);
-                  "
-                ></div>
-                <h4 class="home-product-item__name">
-                  Nhà giả kim (Tái bản 2020)
-                </h4>
-                <div class="home-product-item__price">
-                  <span class="home-product-item__price-old">60.000đ</span>
-                  <span class="home-product-item__price-new">54.000đ</span>
-                </div>
-                <div class="home-product-item__action">
-                  <span class="home-product-item__rating">
-                    <i class="star-golden fas fa-star"></i>
-                    <i class="star-golden fas fa-star"></i>
-                    <i class="star-golden fas fa-star"></i>
-                    <i class="star-golden fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                  </span>
-                  <span class="home-product-item__rating-num">(100)</span>
-                </div>
-                <span class="home-product-item__sale-off-percent">10%</span>
-              </div>
-              
-            </div>
-            <!-- Product item -->
-            <div class="grid_column-2-4">
-              <div class="home-product-item">
-                <div
-                  class="home-product-item__img"
-                  style="
-                    background-image: url(https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_36793.jpg);
-                  "
-                ></div>
-                <h4 class="home-product-item__name">
-                  Nhà giả kim (Tái bản 2020)
-                </h4>
-                <div class="home-product-item__price">
-                  <span class="home-product-item__price-old">60.000đ</span>
-                  <span class="home-product-item__price-new">54.000đ</span>
-                </div>
-                <div class="home-product-item__action">
-                  <span class="home-product-item__rating">
-                    <i class="star-golden fas fa-star"></i>
-                    <i class="star-golden fas fa-star"></i>
-                    <i class="star-golden fas fa-star"></i>
-                    <i class="star-golden fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                  </span>
-                  <span class="home-product-item__rating-num">(100)</span>
-                </div>
-                <span class="home-product-item__sale-off-percent">10%</span>
-              </div>
-              
-            </div>
-            <!-- Product item -->
-            <div class="grid_column-2-4">
-              <div class="home-product-item">
-                <div
-                  class="home-product-item__img"
-                  style="
-                    background-image: url(https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_36793.jpg);
-                  "
-                ></div>
-                <h4 class="home-product-item__name">
-                  Nhà giả kim (Tái bản 2020)
-                </h4>
-                <div class="home-product-item__price">
-                  <span class="home-product-item__price-old">60.000đ</span>
-                  <span class="home-product-item__price-new">54.000đ</span>
-                </div>
-                <div class="home-product-item__action">
-                  <span class="home-product-item__rating">
-                    <i class="star-golden fas fa-star"></i>
-                    <i class="star-golden fas fa-star"></i>
-                    <i class="star-golden fas fa-star"></i>
-                    <i class="star-golden fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                  </span>
-                  <span class="home-product-item__rating-num">(100)</span>
-                </div>
-                <span class="home-product-item__sale-off-percent">10%</span>
-              </div>
-              
-            </div>
-            <!-- Product item -->
-            <div class="grid_column-2-4">
-              <div class="home-product-item">
-                <div
-                  class="home-product-item__img"
-                  style="
-                    background-image: url(https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_36793.jpg);
-                  "
-                ></div>
-                <h4 class="home-product-item__name">
-                  Nhà giả kim (Tái bản 2020)
-                </h4>
-                <div class="home-product-item__price">
-                  <span class="home-product-item__price-old">60.000đ</span>
-                  <span class="home-product-item__price-new">54.000đ</span>
-                </div>
-                <div class="home-product-item__action">
-                  <span class="home-product-item__rating">
-                    <i class="star-golden fas fa-star"></i>
-                    <i class="star-golden fas fa-star"></i>
-                    <i class="star-golden fas fa-star"></i>
-                    <i class="star-golden fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                  </span>
-                  <span class="home-product-item__rating-num">(100)</span>
-                </div>
-                <span class="home-product-item__sale-off-percent">10%</span>
-              </div>
-              
-            </div>
-            <!-- Product item -->
-            <div class="grid_column-2-4">
-              <div class="home-product-item">
-                <div
-                  class="home-product-item__img"
-                  style="
-                    background-image: url(https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_36793.jpg);
-                  "
-                ></div>
-                <h4 class="home-product-item__name">
-                  Nhà giả kim (Tái bản 2020)
-                </h4>
-                <div class="home-product-item__price">
-                  <span class="home-product-item__price-old">60.000đ</span>
-                  <span class="home-product-item__price-new">54.000đ</span>
-                </div>
-                <div class="home-product-item__action">
-                  <span class="home-product-item__rating">
-                    <i class="star-golden fas fa-star"></i>
-                    <i class="star-golden fas fa-star"></i>
-                    <i class="star-golden fas fa-star"></i>
-                    <i class="star-golden fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                  </span>
-                  <span class="home-product-item__rating-num">(100)</span>
-                </div>
-                <span class="home-product-item__sale-off-percent">10%</span>
-              </div>
-              
-            </div>
-            
-          </div>
+         <?php
+            include('../product/product-list.php');
+         ?>
         </div>
       </div>
     </div>

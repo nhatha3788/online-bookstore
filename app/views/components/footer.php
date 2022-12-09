@@ -1,7 +1,7 @@
 <div class="container-fluid footer">
     <div class="row">
-        <div class="col-3 footer-logo" >
-            <a href=""><img src="../../../public/images/logo/logo.png" alt="logo"></a>
+        <div class="col-3 footer-logo">
+            <a href="../customer/home.php"><img src="../../../public/images/logo/logo.png" alt="logo"></a>
             <p>Lầu 5, 387-389 Hai Bà Trưng Quận 3 TP HCM</p>
             <p>Công Ty Cổ Phần Phát Hành Sách TP HCM - FAHASA60</p>
             <p>62 Lê Lợi, Quận 1, TP. HCM, Việt Nam</p>
@@ -51,12 +51,12 @@
                     </ul>
                 </div>
             </div>
-            
+
             <div class="row text-center info">
                 <p class="col-title">LIÊN HỆ</p>
                 <div class="col">
                     <i class="fa-sharp fa-solid fa-location-dot"></i> 60-62 Lê Lợi, Q.1, TP. HCM
-                </div>  
+                </div>
                 <div class="col">
                     <i class="fa-solid fa-envelope"></i>cskh@bookstore.com.vn
                 </div>

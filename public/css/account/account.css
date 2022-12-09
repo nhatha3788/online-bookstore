@@ -1,6 +1,10 @@
 body {
-  background-color: burlywood;
+  background-color: #bcbab5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
+
 .content {
   width: 80%;
 }
@@ -19,6 +23,13 @@ body {
 .profile-title {
   font-weight: 700;
   margin-bottom: 20px;
+}
+
+.logout-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
 .profile {

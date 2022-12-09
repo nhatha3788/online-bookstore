@@ -1,3 +1,10 @@
+body {
+  background-color: #bcbab5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 .main-container {
   background-color: rgb(137, 136, 136);
   padding: 10px 0;
