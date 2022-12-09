@@ -1,3 +1,6 @@
+<?php
+include('../../controller/product_ctl.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,27 +31,27 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-5 book-cover">
-                            <img src="../../../public/images/product/climatechange.jpg" alt="">
+                            <img src="<?php echo $book_info['cover_image']; ?>" alt="">
                         </div>
                         <div class="col book-title-quantity">
-                            <div class="book-title">DK Eyewitness: Climate Change</div>
+                            <div class="book-title"><?php echo $book_info['name']; ?></div>
                             <div class="rating">
                                 <div class="progress">
                                     <div class="progress-bar bg-success" role="progressbar" aria-label="Success example" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
-                                <div>45 đánh giá</div>
+                                <div><?php echo $number_of_rate . " đánh giá"; ?></div>
                             </div>
 
                             <div class="price-sold">
                                 <div>
-                                    <div><strong>Nhà xuất bản: </strong>Oxford</div>
-                                    <div class="book-price">96.000 đ</div>
+                                    <div><strong>Nhà xuất bản: </strong><?php echo $book_info['publisher']; ?></div>
+                                    <div class="book-price"><?php echo number_format($book_info['price'], 0, ',', '.') . "đ"; ?></div>
                                 </div>
                                 <div>
-                                    <div><strong>Tác giả: </strong>Oxford</div>
+                                    <div><strong>Tác giả: </strong><?php echo $book_info['author']; ?></div>
                                     <div class="sold-quantity">
                                         <button type="button" class="btn btn-warning">
-                                            Đã bán <span class="badge text-bg-secondary">4</span>
+                                            Đã bán <span class="badge text-bg-secondary"><?php echo $soluong_daban; ?></span>
                                         </button>
                                     </div>
                                 </div>
@@ -60,9 +63,12 @@
 
                     </div>
                     <div class="row">
-                        <div class="buy-button">
-                            <button type="button" class="btn btn-outline-danger"><i class="fa-solid fa-cart-plus"></i>Thêm vào giỏ hàng</button>
-                            <button type="button" class="btn btn-danger">Mua ngay</button>
+                        <div class="col-5"></div>
+                        <div class="col">
+                            <div class="buy-button">
+                                <button type="button" class="btn btn-outline-danger"><i class="fa-solid fa-cart-plus"></i>Thêm vào giỏ hàng</button>
+                                <button type="button" class="btn btn-danger">Mua ngay</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -70,19 +76,14 @@
         </div>
         <div class="product-body description">
             <div class="subtitle">Thông tin sản phẩm</div>
-            <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, veniam! Earum architecto aperiam autem provident dolorum. Enim pariatur recusandae provident accusantium nisi hic minima impedit debitis laudantium consequatur! Veritatis, nemo?</div>
-            <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, veniam! Earum architecto aperiam autem provident dolorum. Enim pariatur recusandae provident accusantium nisi hic minima impedit debitis laudantium consequatur! Veritatis, nemo?</div>
-            <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, veniam! Earum architecto aperiam autem provident dolorum. Enim pariatur recusandae provident accusantium nisi hic minima impedit debitis laudantium consequatur! Veritatis, nemo?</div>
-            <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, veniam! Earum architecto aperiam autem provident dolorum. Enim pariatur recusandae provident accusantium nisi hic minima impedit debitis laudantium consequatur! Veritatis, nemo?</div>
+            <div><?php echo $book_info['description']; ?></div>
         </div>
         <div class="product-body suggestion">
             <div class="subtitle">Bookstore đề xuất</div>
             <div class="container">
                 <div class="row text-center">
                     <?php
-                    for ($i = 0; $i < 6; $i++) {
-                        echo include '../components/suggestion-item.php';
-                    }
+                    include '../components/suggestion-item.php';
                     ?>
                 </div>
             </div>
@@ -90,7 +91,7 @@
         <div class="product-body comment">
             <div class="subtitle">Đánh giá sản phẩm</div>
             <div class="rating">
-                <div>45 đánh giá</div>
+                <div><?php echo $number_of_rate . " đánh giá"; ?></div>
             </div>
             <div class="comment-button">
                 <div class="progress">
@@ -107,15 +108,22 @@
 
             <div class="container comments">
                 <?php
-                for ($i = 0; $i < 3; $i++) {
-                    echo '
-                    <div class="row a-comment">
-                        <div class="col-2 commentor-info">
-                            <strong>Hiếu Nghĩa</strong>
-                            <div>27/06/2017</div>
+                $item = 0;
+                while ($cmt_info = mysqli_fetch_array($cmt_run)) {
+                    $name = "SELECT `name` FROM `customer` WHERE customer_id=$cmt_info[customer_id]";
+                    $name_run = mysqli_query($conn, $name);
+                    $temp = mysqli_fetch_array($name_run);
+                    if ($item > 7) {
+                        break;
+                    }
+                    echo "
+                    <div class='row a-comment'>
+                        <div class='col-2 commentor-info'>
+                            <strong>$temp[name]</strong>
                         </div>
-                        <div class="col comment-content">Một cuốn sách hay của một nhà xuất bản uy tín. Sách rất phù hợp với những người đi làm cần trao dồi thêm kỹ năng giao tiếp bằng tiếng Anh. Có rất nhiều tình huống hội thoại hay, sinh động, mang tính thực tế cao.</div>
-                    </div>';
+                        <div class='col comment-content'>$cmt_info[comment]</div>
+                    </div>";
+                    $item = $item + 1;
                 }
                 ?>
             </div>

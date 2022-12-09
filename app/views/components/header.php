@@ -2,7 +2,7 @@
     <div class="header">
         <div class="header-wrapper">
             <div class="logo">
-                <a href=""><img src="../../../public/images/logo/hcmut-white.png" alt="logo"></a>
+                <a href="../customer/home.php"><img src="../../../public/images/logo/logo.png" alt="logo"></a>
             </div>
             <div class="menu-search">
                 <!-- <button type="button" data-bs-toggle="dropdown" aria-expanded="false"> -->

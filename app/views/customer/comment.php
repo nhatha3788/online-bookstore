@@ -1,3 +1,7 @@
+<?php
+  session_start();
+  include('../../model/checkLogin_model.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
