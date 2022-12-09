@@ -91,7 +91,24 @@ include('../../controller/product_ctl.php');
                 <div class="progress">
                     <div class="progress-bar bg-success" role="progressbar" aria-label="Success example" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
-                <button type="button" class="btn btn-danger"><i class="fa-regular fa-pen-to-square"></i>Viết đánh giá</button>
+                <button type="button" class="btn btn-danger" id="commentBtn" data-bs-toggle="modal" data-bs-target="#commentBackdrop"><i class="fa-regular fa-pen-to-square"></i>Viết đánh giá</button>
+                <div class="modal fade " id="commentBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="commentBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="commentBackdropLabel">ĐÁNH GIÁ SẢN PHẨM</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <label for="newPhone" class="form-label">Viết đánh giá của bạn đi nào...</label>
+                                <input type="text" class="form-control" id="newComment" name="newComment">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-primary confirm-button" name="newComment-sm">Gửi đánh giá</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="comment-sort">
