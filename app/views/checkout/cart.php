@@ -1,3 +1,6 @@
+<?php
+        include('../../controller/cart_ctl.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 

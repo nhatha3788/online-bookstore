@@ -21,12 +21,6 @@ include('../../controller/product_ctl.php');
     <?php include '../components/header.php'; ?>
     <div class="main-container">
         <div class="product-body">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item">FOREIGN BOOKS</li>
-                    <li class="breadcrumb-item active" aria-current="page">CHILDREN'S BOOKS</li>
-                </ol>
-            </nav>
             <div class="product-detail">
                 <div class="container">
                     <div class="row">
