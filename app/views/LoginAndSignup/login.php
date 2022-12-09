@@ -65,7 +65,7 @@
               <input type="submit" value="Đăng nhập" name="login"/>
             </div>
             <div class="input-field button">
-              <input type="button" value="Trang chủ" />
+               <input type="button" onclick="location.href='../customer/home.php';" value="Trang chủ" />
             </div>
           </form>
           <div class="login-signup">
