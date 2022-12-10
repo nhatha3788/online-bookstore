@@ -35,9 +35,15 @@
                 <span>Số lượng:</span>
                 <input type='number' class='form-control' id='set-quantity' value='$row[quantity]' min='1'>
                 <div class='price'> 98.000 đ</div>
+                <a href='../../controller/checkout_ctl.php?delete_book=$book_info[book_id]'>
+                <i class='fa-solid fa-trash-can'></i>
+                </a>
             </div>
-            <a href=''>Xóa</a>
+            
+            
         </div>
         <div class='mui-divider'></div>
     ";
 ?>
+
+<!-- <a href='../../controller/checkout_ctl.php?delete_book=$book_info[book_id]'>Xóa</a> -->
