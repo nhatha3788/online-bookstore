@@ -13,6 +13,8 @@
     }else{
         $category = "Sách nước ngoài";
     }
+    $item_total_price_ip = $quantity * $book_info['price'];
+    $item_total_price =number_format($item_total_price_ip, 0, ',', '.') . "đ";
 ?>
 
 <?php
@@ -33,9 +35,10 @@
             </div>
             <div class='price-quantity'>
                 <span>Số lượng:</span>
-                <input type='number' class='form-control' id='set-quantity' value='$row[quantity]' min='1'>
-                <div class='price'> 98.000 đ</div>
-                <a href='../../controller/checkout_ctl.php?delete_book=$book_info[book_id]'>
+                <input type='hidden' class='book_id' value='$book_id'>
+                <input type='number' class='form-control itemQty' value='$row[quantity]' min='1'>
+                <div class='price'> $item_total_price</div>
+                <a href='../../controller/checkout_ctl.php?delete_book=$book_id'>
                 <i class='fa-solid fa-trash-can'></i>
                 </a>
             </div>

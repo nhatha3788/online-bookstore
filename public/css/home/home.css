@@ -48,11 +48,11 @@
   text-decoration: none;
   color: black;
 }
-.btn {
+/* .btn {
   min-width: 124px;
   height: 34px;
   text-decoration: none;
-  /* border: solid 1px black; */
+  border: solid 1px black;
   border-radius: 2px;
   font-size: 1.5rem;
   padding: 0 12px;
@@ -63,12 +63,13 @@
   justify-content: center;
   line-height: 1.6rem;
   background-color: wheat;
-}
+} */
 .home-filter {
   padding: 10px 2px;
   background-color: antiquewhite;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  /* align-items: center; */
 }
 .home-filter__paginate {
   display: flex;

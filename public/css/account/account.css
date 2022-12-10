@@ -23,6 +23,8 @@ body {
 .profile-title {
   font-weight: 700;
   margin-bottom: 20px;
+  border-bottom: 1px solid black;
+  padding-bottom: 15px;
 }
 
 .logout-button {

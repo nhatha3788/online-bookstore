@@ -27,7 +27,9 @@ body {
 
 .address-title {
   font-weight: 700;
-  font-size: larger;
+  margin-bottom: 20px;
+  border-bottom: 1px solid black;
+  padding-bottom: 15px;
 }
 
 .address-subtitle {

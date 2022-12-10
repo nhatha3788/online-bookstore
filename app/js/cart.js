@@ -4,8 +4,8 @@ function addCart(book_id){
         type: "POST",
         url: '../../controller/addCart_ctl.php',
         data: {quantity:quantity,book_id:book_id},
-        success: function(response){
-
+        success: function(){
+            alert("Thêm vào giỏ hàng thành công");
         }
     });
 }
