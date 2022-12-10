@@ -1,0 +1,18 @@
+1. bảng admin
+-user_name ->email
+-Thêm cột name
+2.bảng applyfor
+-xóa bảng(do không sử dụng)
+3.bảng book
+-bỏ cột rating
+_sửa foreign key constrain (on delete và on update)
+từ cascade thành restrict
+4.bảng promotion
+_xóa bảng(do không sử dụng)
+5. bảng contain
+_sửa foreign key(contain2) constraint (on delete và
+ on update) từ cascade thành restrict
+6. bảng oder
+_sửa foreign key(oder1 và oder2) constraint 
+(on delete và on update) từ cascade thành restrict
+

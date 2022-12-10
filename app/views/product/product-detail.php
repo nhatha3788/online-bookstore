@@ -52,7 +52,8 @@ include('../../controller/product_ctl.php');
                             </div>
                             <div><strong>Chính sách đổi trả: </strong> Đổi trả sản phẩm trong 30 ngày <span class="badge rounded-pill text-bg-primary">Xem thêm</span></div>
                             <strong>Số lượng</strong>
-                            <input type="text" class="form-control" id="set-quantity" value="1">
+                            <input type="number" class="form-control" id="set-quantity" name="set-quantity" value="1" min="1">
+                            <input type="hidden" class="form-control" id="customer-id" name="customer-id" value="<?=$_SESSION['customer_id'] ?>" >
                         </div>
 
                     </div>
@@ -60,7 +61,7 @@ include('../../controller/product_ctl.php');
                         <div class="col-5"></div>
                         <div class="col">
                             <div class="buy-button">
-                                <button type="button" class="btn btn-outline-danger"><i class="fa-solid fa-cart-plus"></i>Thêm vào giỏ hàng</button>
+                                <button type="button" class="btn btn-outline-danger" id="addcart-bt" onclick="addCart(<?php echo $book_info['book_id'] ?>)"><i class="fa-solid fa-cart-plus"></i>Thêm vào giỏ hàng</button>
                                 <button type="button" class="btn btn-danger">Mua ngay</button>
                             </div>
                         </div>
@@ -128,6 +129,8 @@ include('../../controller/product_ctl.php');
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     <script src="../../js/jquery.js"></script>
     <script src="../../js/function.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <script src="../../js/cart.js"></script>
 </body>
 
 </html>
