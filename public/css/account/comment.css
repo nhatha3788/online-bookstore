@@ -47,3 +47,7 @@ body {
   /* height: 20px; */
   font-size: 16px;
 }
+
+.book-comment {
+  display: none;
+}

@@ -19,12 +19,14 @@ $(document).ready(function () {
     $("#emailBackdrop").modal("show");
   });
 
-  $(".comment-toggle").click(() => {
-    let i = this.id.charAt(4);
-    if ($(`comment${i}`).css("display") == "none") {
-      $(`comment${i}`).css("display", "block");
+  $(".comment-toggle").click((event) => {
+    let i = event.currentTarget.id.charAt(4);
+    console.log( event.currentTarget);
+    console.log( event.currentTarget.id.charAt(4));
+    if ($(`#comment${i}`).css("display") == "none") {
+      $(`#comment${i}`).css("display", "block");
     } else {
-      $(`comment${i}`).css("display", "none");
+      $(`#comment${i}`).css("display", "none");
     }
   });
 });
