@@ -27,10 +27,10 @@
                     <div class="row cart-info">
                         <div class="col-8 column-content">
                             <div class="order">
-                                <div class="subtitle">Giỏ hàng: 4 sản phẩm</div>
+                                <div class="subtitle">Giỏ hàng: <?= $number_item?> sản phẩm</div>
                                 <div class="section-wrapper">
                                     <?php
-                                    for ($i = 0; $i < 4; $i++) {
+                                    while($row = mysqli_fetch_array($db_cart_run)){
                                         include '../components/checkout-item.php';
                                     }
                                     ?>
@@ -41,19 +41,19 @@
                                 <div class="section-wrapper">
                                     <fieldset id="group1">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="group1" id="method1" value="option1" checked>
+                                            <input class="form-check-input" type="radio" name="group1" id="method1" value="Thanh toán khi nhận hàng" checked>
                                             <label class="form-check-label" for="method1">
                                                 Thanh toán khi nhận hàng
                                             </label>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="group1" id="method2" value="option2">
+                                            <input class="form-check-input" type="radio" name="group1" id="method2" value="Internet Banking">
                                             <label class="form-check-label" for="method2">
                                                 Internet Banking
                                             </label>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="group1" id="method3" value="option3">
+                                            <input class="form-check-input" type="radio" name="group1" id="method3" value="Ví MOMO">
                                             <label class="form-check-label" for="method3">
                                                 Ví MOMO
                                             </label>
@@ -65,24 +65,18 @@
                                 <div class="subtitle">Địa chỉ nhận hàng</div>
                                 <div class="section-wrapper">
                                     <fieldset id="group2">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="group2" id="address1" value="option1" checked>
-                                            <label class="form-check-label" for="address1">
-                                                Nguyễn Văn A | HCM, VN
+                                    <?php
+                                    while($row = mysqli_fetch_array($db_address_run)){
+                                        echo "
+                                        <div class='form-check'>
+                                            <input class='form-check-input' type='radio' name='group2' id='address1' value='$row[address_id]' checked>
+                                            <label class='form-check-label' for='address1'>
+                                                $row[address]
                                             </label>
                                         </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="group2" id="address2" value="option2">
-                                            <label class="form-check-label" for="address2">
-                                                Nguyễn Văn A | Hà Nội, VN
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="group2" id="address3" value="option3">
-                                            <label class="form-check-label" for="address3">
-                                                Nguyễn Văn A | Trái Đất
-                                            </label>
-                                        </div>
+                                        ";
+                                    }
+                                    ?>
                                     </fieldset>
                                 </div>
                             </div>
