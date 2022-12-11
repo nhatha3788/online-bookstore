@@ -27,5 +27,8 @@
             header('location: ../customer/address.php');
             exit(0);
         }
+        $total_price = 0;
+        
+
     }
 ?>

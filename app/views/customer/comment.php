@@ -48,13 +48,11 @@ include('../../model/checkLogin_model.php');
                                 <table class='table table-striped'>
                                     <thead>
                                         <tr>
-                                            <th>Ngày</th>
                                             <th>Bình luận</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>12/21/2022</td>
                                             <td>Nội dung rất bổ ích.</td>
                                         </tr>
                                     </tbody>

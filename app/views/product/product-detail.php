@@ -65,7 +65,7 @@ include('../../controller/product_ctl.php');
                                         ?>
                                         
                                         <button type="button" class="btn btn-outline-danger" id="addcart-bt" onclick="addCart(<?php echo $book_info['book_id'] ?>)"><i class="fa-solid fa-cart-plus"></i>Thêm vào giỏ hàng</button>
-                                        <button type="button" class="btn btn-danger">Mua ngay</button>
+                                        <button type="button" class="btn btn-danger" id="buynow" onclick="buynow(<?php echo $book_info['book_id'] ?>)">Mua ngay</button>
 
                                         <?php
                                         

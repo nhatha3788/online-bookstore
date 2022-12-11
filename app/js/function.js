@@ -1,3 +1,10 @@
+function format1(n) {
+  var currency ="đ";
+  return  n.toFixed(0).replace(/./g, function(c, i, a) {
+    return i > 0 && c !== "." && (a.length - i) % 3 === 0 ? "." + c : c;
+  }) +currency;
+}
+
 $(document).ready(function () {
   $(".menu-toggle").click(function () {
     // console.log($(".menu").css("display"));
@@ -43,4 +50,17 @@ $(document).ready(function () {
       }
     });
   });
+  $(".service").on('click',function(){
+    var service = 0;
+    $(".service:checked").each(function(){
+      service =  20000;
+    });
+    var tt_price = service + Number($('#it-price').val());
+    $('#dp-sv-price').html(format1(service));
+    $('#dp-total-price').html(format1(tt_price));
+    $('#total-price').val(tt_price);
+});
+$(".home").on('click',function(){
+  location.replace('../../views/customer/home.php');
+});
 });

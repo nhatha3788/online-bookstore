@@ -18,14 +18,11 @@
 ?>
 
 <?php
-
+    $total_price = $total_price + $item_total_price_ip;
     echo "
         <div class='checkout-item'>
             <div class='image-info'>
                 <div>
-                    <div class='mui-checkbox'>
-                        <input type='checkbox' value=''>
-                    </div>
                 </div><img src='$book_info[cover_image]' alt=''>
                 <div class='item-info'>
                     <div><strong>$book_info[name]</strong></div>
@@ -36,6 +33,7 @@
             <div class='price-quantity'>
                 <span>Số lượng:</span>
                 <input type='hidden' class='book_id' value='$book_id'>
+                <input type='hidden' class='tt_price' value='$item_total_price'>
                 <input type='number' class='form-control itemQty' value='$row[quantity]' min='1'>
                 <div class='price'> $item_total_price</div>
                 <a href='../../controller/checkout_ctl.php?delete_book=$book_id'>
