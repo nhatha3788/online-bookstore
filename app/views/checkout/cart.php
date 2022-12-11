@@ -128,7 +128,7 @@
                         </div>
                     </div>
                     <div class="row checkout-button">
-                        <!-- <button class="mui-btn mui-btn--accent home">Tiếp tục mua hàng</button> -->
+                        <button type="button" class="mui-btn mui-btn--accent home">Tiếp tục mua hàng</button> 
                         <button class="mui-btn mui-btn--danger" type="submit" name="buy">Xác nhận thanh toán</button>
                     </div>
                 </div>
