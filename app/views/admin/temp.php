@@ -1,1 +1,0 @@
-<!-- view for admin here -->
