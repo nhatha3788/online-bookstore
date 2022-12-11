@@ -1,7 +1,7 @@
 <?php
 include('../../config.php');
  if(isset($_SESSION['customer_id'])){
-    header('location: ../customer');
+    header('location: ../customer/home.php');
     exit(0);
  }
 if(isset($_POST['login'])){
@@ -14,7 +14,7 @@ if(isset($_POST['login'])){
         if($row['verify_status'] == 1){
             $_SESSION['customer_id'] = $row['customer_id'];
             $id = $row['customer_id'];
-            header("location: ../customer");
+            header("location: ../customer/home.php");
         }else{
             $_SESSION['status'] = "Email chưa xác thực.";
         }

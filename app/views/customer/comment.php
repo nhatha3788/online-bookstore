@@ -1,6 +1,6 @@
 <?php
-  session_start();
-  include('../../model/checkLogin_model.php');
+session_start();
+include('../../model/checkLogin_model.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,7 +31,37 @@
                 <div class="col-9">
                     <div class="comment">
                         <p class="comment-title">NHẬN XÉT CỦA TÔI</p>
-                        <p>Bạn chưa có nhận xét nào.</p>
+                        <?php
+                        for ($i = 0; $i < 3; $i++) {
+                            echo "<div class='a-book'>
+                            <div class='box-wrapper'>
+                                <!-- <div class='image-info'> -->
+                                <img src='../../../public/images/product/pap.jpg' alt=''>
+                                <div><strong>Pride and Prejudice</strong></div>
+                                <div><strong>Tác giả: </strong>Nguyễn Văn A</div>
+                                <div><strong>Thể loại: </strong>Thiếu nhi</div>
+                                <div><strong>Giá: </strong><span class='price'>98.000 đ</span></div>
+                                <!-- </div> -->
+                                <button class='mui-btn mui-btn--small mui-btn--primary mui-btn--fab comment-toggle' id='book$i'><i class='fa-solid fa-caret-down'></i></button>
+                            </div>
+                            <div class='box-wrapper book-comment' id='comment$i'>
+                                <table class='table table-striped'>
+                                    <thead>
+                                        <tr>
+                                            <th>Bình luận</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Nội dung rất bổ ích.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>";
+                        }
+
+                        ?>
                     </div>
                 </div>
             </div>

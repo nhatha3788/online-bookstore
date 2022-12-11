@@ -3,6 +3,7 @@
     include('../../model/checkLogin_model.php');
     if(isset($_SESSION['customer_id'])){
         $customer_id = $_SESSION['customer_id'];
+
         $db_cart= "SELECT * FROM cart WHERE customer_id='$customer_id'";
         $db_cart_run = mysqli_query($conn,$db_cart);
 
@@ -26,5 +27,8 @@
             header('location: ../customer/address.php');
             exit(0);
         }
+        $total_price = 0;
+        
+
     }
 ?>

@@ -22,7 +22,7 @@
     <?php include '../components/header.php'; ?>
     <div class="main-container">
         <div class="cart">
-            <form action="">
+            <form action="../../controller/checkout_ctl.php" method="post">
                 <div class="container">
                     <div class="row cart-info">
                         <div class="col-8 column-content">
@@ -41,19 +41,19 @@
                                 <div class="section-wrapper">
                                     <fieldset id="group1">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="group1" id="method1" value="Thanh toán khi nhận hàng" checked>
+                                            <input class="form-check-input" type="radio" name="method-payment" id="method1" value="Thanh toán khi nhận hàng" checked>
                                             <label class="form-check-label" for="method1">
                                                 Thanh toán khi nhận hàng
                                             </label>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="group1" id="method2" value="Internet Banking">
+                                            <input class="form-check-input" type="radio" name="method-payment" id="method2" value="Internet Banking">
                                             <label class="form-check-label" for="method2">
                                                 Internet Banking
                                             </label>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="group1" id="method3" value="Ví MOMO">
+                                            <input class="form-check-input" type="radio" name="method-payment" id="method3" value="Ví MOMO">
                                             <label class="form-check-label" for="method3">
                                                 Ví MOMO
                                             </label>
@@ -69,8 +69,8 @@
                                     while($row = mysqli_fetch_array($db_address_run)){
                                         echo "
                                         <div class='form-check'>
-                                            <input class='form-check-input' type='radio' name='group2' id='address1' value='$row[address_id]' checked>
-                                            <label class='form-check-label' for='address1'>
+                                            <input class='form-check-input' type='radio' name='address' value='$row[address_id]' checked>
+                                            <label class='form-check-label' for='address'>
                                                 $row[address]
                                             </label>
                                         </div>
@@ -80,6 +80,7 @@
                                     </fieldset>
                                 </div>
                             </div>
+                            <input hidden="hidden" type="text"  id="total-price" name="all-total-price" value=<?= $total_price;?>>
                         </div>
                         <div class="col-4 column-content">
                             <div class="summary">
@@ -87,18 +88,19 @@
                                 <div class="section-wrapper">
                                     <div style="display: flex; flex-direction:column;row-gap:10px;">
                                         <div style="display: flex; justify-content:space-between;">
-                                            <strong>Thành tiền: </strong>0 đ
+                                            <input hidden="hidden" type="number"  id="it-price" value=<?= $total_price;?>>
+                                            <strong>Thành tiền: </strong><span id="dp-it-price"><?= number_format($total_price, 0, ',', '.') . "đ";?></span>
                                         </div>
                                         <div style="display: flex; justify-content:space-between;">
-                                            <strong>Phí dịch vụ: </strong>20.000đ
+                                            <strong>Phí dịch vụ: </strong><span id="dp-sv-price"></span>
                                         </div>
                                         <div style="display: flex; justify-content:space-between;">
-                                            <strong>Tổng số tiền: </strong>20.000đ
+                                            <strong>Tổng số tiền: </strong><span id="dp-total-price"><?= number_format($total_price, 0, ',', '.') . "đ";?></span>
                                         </div>
                                     </div>
                                     <div class="mui-divider"></div>
                                     <div class="gogo">
-                                        <button class="mui-btn mui-btn--danger">Thanh toán</button>
+                                        <button class="mui-btn mui-btn--danger" type="submit" name="buy">Thanh toán</button>
                                     </div>
 
                                 </div>
@@ -108,7 +110,7 @@
                                 <div class="section-wrapper" style="display: flex; justify-content:space-between;align-items: center;">
                                     <div style="display: flex; align-items: center; gap:10px">
                                         <div class="form-check form-switch">
-                                            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+                                            <input class="form-check-input service" type="checkbox" role="switch" id="flexSwitchCheckChecked">
                                         </div>
                                         <span>Bọc sách</span>
                                     </div>
@@ -118,8 +120,8 @@
                         </div>
                     </div>
                     <div class="row checkout-button">
-                        <button class="mui-btn mui-btn--accent">Tiếp tục mua hàng</button>
-                        <button class="mui-btn mui-btn--danger">Xác nhận thanh toán</button>
+                        <button type="button" class="mui-btn mui-btn--accent home">Tiếp tục mua hàng</button> 
+                        <button class="mui-btn mui-btn--danger" type="submit" name="buy">Xác nhận thanh toán</button>
                     </div>
                 </div>
         </div>

@@ -20,6 +20,13 @@ include('../../controller/ctmAccount_ctl.php');
 </head>
 
 <body>
+<?php 
+        if(isset($_SESSION['status'])){
+            $p = $_SESSION['status'];
+            echo '<script>alert("Mua hàng thành công")</script>'; 
+          unset($_SESSION['status']);
+        }
+        ?>
     <?php include '../components/header.php'; ?>
     <div class="main-container">
         <div class="container-fluid content">

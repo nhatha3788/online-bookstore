@@ -1,12 +1,22 @@
 function addCart(book_id){
     quantity = $("#set-quantity").val();
-    customer_id = $("#customer-id").val();
     $.ajax({
         type: "POST",
         url: '../../controller/addCart_ctl.php',
-        data: {quantity:quantity,customer_id:customer_id,book_id:book_id},
-        success: function(response){
-
+        data: {quantity:quantity,book_id:book_id},
+        success: function(){
+            alert("Thêm vào giỏ hàng thành công");
+        }
+    });
+}
+function buynow(book_id){
+    quantity = $("#set-quantity").val();
+    $.ajax({
+        type: "POST",
+        url: '../../controller/addCart_ctl.php',
+        data: {quantity:quantity,book_id:book_id},
+        success: function(){
+            location.replace('../../views/checkout/cart.php');
         }
     });
 }
