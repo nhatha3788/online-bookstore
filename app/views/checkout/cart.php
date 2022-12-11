@@ -21,14 +21,6 @@
 <body>
     <?php include '../components/header.php'; ?>
     <div class="main-container">
-        <?php 
-        if(isset($_SESSION['status'])){
-            $p = $_SESSION['status'];
-            echo '<script>alert("Mua hàng thành công")</script>'; 
-          unset($_SESSION['status']);
-        }
-        ?>
-
         <div class="cart">
             <form action="../../controller/checkout_ctl.php" method="post">
                 <div class="container">

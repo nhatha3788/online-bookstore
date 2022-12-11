@@ -48,7 +48,7 @@
         if($order_run && $get_cart_run){
             $_SESSION['status'] = "Mua hành thành công";
             header('location: ../views/customer/order-history.php');
-                exit(0);
+            exit(0);
         }
     }
 ?>
