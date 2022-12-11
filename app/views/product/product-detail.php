@@ -104,6 +104,7 @@ include('../../controller/product_ctl.php');
             <div class="rating">
                 <div><?php echo $number_of_rate . " đánh giá"; ?></div>
             </div>
+            <br>
             <div class="comment-button">
                 <!-- <div class="progress">
                     <div class="progress-bar bg-success" role="progressbar" aria-label="Success example" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
