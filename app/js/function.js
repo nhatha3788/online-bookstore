@@ -63,4 +63,17 @@ $(document).ready(function () {
 $(".home").on('click',function(){
   location.replace('../../views/customer/home.php');
 });
+$("#newComment-bt").on('click',function(){
+  var comment = $('#newComment').val();
+  var book_id = $('#book-id').val();
+  $.ajax({
+    url: '../../controller/addcmt_ctl.php',
+    method: 'POST',
+    cache: false,
+    data: {comment:comment,book_id:book_id},
+    success: function(){
+      location.reload(true);
+    }
+  });
+});
 });
