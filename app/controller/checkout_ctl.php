@@ -17,9 +17,11 @@
         $total_price = $_POST['all-total-price'];
         $payment = mysqli_real_escape_string($conn, $_POST['method-payment']);
         $address_id = $_POST['address'];
+        $res=mysqli_fetch_assoc(mysqli_query($conn,"SELECT CURDATE() AS date;"));
+        $date=$res['date'];
 
-        $order = "INSERT INTO `oder` (`cost`, `payment_method`, `customer_id`, `address_id`) 
-                  VALUES ('$total_price','$payment','$customer_id','$address_id');";
+        $order = "INSERT INTO `oder` (`cost`, `oder_date`, `payment_method`, `customer_id`, `address_id`) 
+                  VALUES ('$total_price', '$date', '$payment','$customer_id','$address_id');";
         $order_run = mysqli_query($conn,$order);
         if(!$order_run){
             header('location: ../views/LoginAndSignup/login.php');
