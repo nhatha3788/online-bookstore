@@ -100,7 +100,13 @@
                                     </div>
                                     <div class="mui-divider"></div>
                                     <div class="gogo">
-                                        <button class="mui-btn mui-btn--danger" type="submit" name="buy">Thanh toán</button>
+                                    <?php
+                                        if($number_item > 0){
+                                            echo "<button class='mui-btn mui-btn--danger' type='submit' name='buy'>Thanh toán</button>";
+                                        }else{
+                                            echo "<button class='mui-btn mui-btn--danger' type='button'>Thanh toán</button>";
+                                        }
+                                    ?>
                                     </div>
 
                                 </div>
@@ -121,7 +127,13 @@
                     </div>
                     <div class="row checkout-button">
                         <button type="button" class="mui-btn mui-btn--accent home">Tiếp tục mua hàng</button> 
-                        <button class="mui-btn mui-btn--danger" type="submit" name="buy">Xác nhận thanh toán</button>
+                        <?php
+                        if($number_item > 0){
+                            echo "<button class='mui-btn mui-btn--danger' type='submit' name='buy'>Xác nhận thanh toán</button>";
+                        }else{
+                            echo "<button class='mui-btn mui-btn--danger' type='button'>Xác nhận thanh toán</button>";
+                        }
+                        ?>
                     </div>
                 </div>
         </div>
