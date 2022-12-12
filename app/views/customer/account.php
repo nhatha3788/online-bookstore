@@ -67,7 +67,7 @@ include('../../controller/ctmAccount_ctl.php');
                                     <ul>
                                         <li>
                                             <button class="edit-button"><i class="fa-solid fa-pen-to-square"></i></button>
-                                            <input type="text" class="form-control" id="name" value="<?php echo $name; ?>">
+                                            <input type="text" class="form-control" name="name" id="name" value="<?php echo $name; ?>">
                                         </li>
                                         <li>
                                             <button type="button" class="edit-button" id="phoneBtn" data-bs-toggle="modal" data-bs-target="#phoneBackdrop"><i class="fa-solid fa-pen-to-square"></i></button>

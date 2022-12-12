@@ -8,7 +8,7 @@
         $db_cart_run = mysqli_query($conn,$db_cart);
 
         if(!$db_cart_run){
-            header('location: ../LoginAndSignup/home.php');
+            header('location: ../customer/home.php');
             exit(0);
         }
         $number_item = mysqli_num_rows($db_cart_run);
@@ -17,7 +17,7 @@
         $db_address = "SELECT * FROM `address` WHERE customer_id='$customer_id'"; 
         $db_address_run = mysqli_query($conn,$db_address);
         if(!$db_address_run){
-            header('location: ../LoginAndSignup/home.php');
+            header('location: ../customer/home.php');
             exit(0);
         }
         $number_address = mysqli_num_rows($db_address_run);
