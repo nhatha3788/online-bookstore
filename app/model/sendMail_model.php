@@ -29,7 +29,7 @@
             <h2>Bạn đã đăng kí tài khoản ở Bookstore</h2>
             <h5>Xác thực tài khoản bằng cánh ấn link dưới</h5>
             <br><br>
-            <a href='http://localhost/BTL_v2/app/controller/verify.php?code=$code'>Click me</a>
+            <a href='http://localhost/BTL/app/controller/verify.php?code=$code'>Click me</a>
         ";
     
         $mail->Body    = $text;
@@ -60,7 +60,7 @@
             <h2>Xin chào</h2>
             <h5>Đổi mật khẩu mới.</h5>
             <br><br>
-            <a href='http://localhost/BTL_v2/app/views/LoginAndSignup/resetPassword.php?code=$code'>Click me</a>
+            <a href='http://localhost/BTL/app/views/LoginAndSignup/resetPassword.php?code=$code'>Click me</a>
         ";
     
         $mail->Body    = $text;

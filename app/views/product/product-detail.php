@@ -30,9 +30,9 @@ include('../../controller/product_ctl.php');
                         <div class="col book-title-quantity">
                             <div class="book-title"><?php echo $book_info['name']; ?></div>
                             <div class="rating">
-                                <div class="progress">
+                                <!-- <div class="progress">
                                     <div class="progress-bar bg-success" role="progressbar" aria-label="Success example" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
+                                </div> -->
                                 <div><?php echo $number_of_rate . " đánh giá"; ?></div>
                             </div>
 
@@ -104,10 +104,11 @@ include('../../controller/product_ctl.php');
             <div class="rating">
                 <div><?php echo $number_of_rate . " đánh giá"; ?></div>
             </div>
+            <br>
             <div class="comment-button">
-                <div class="progress">
+                <!-- <div class="progress">
                     <div class="progress-bar bg-success" role="progressbar" aria-label="Success example" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
+                </div> -->
                 <button type="button" class="btn btn-danger" id="commentBtn" data-bs-toggle="modal" data-bs-target="#commentBackdrop"><i class="fa-regular fa-pen-to-square"></i>Viết đánh giá</button>
                 <div class="modal fade " id="commentBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="commentBackdropLabel" aria-hidden="true">
                     <div class="modal-dialog">
@@ -119,20 +120,22 @@ include('../../controller/product_ctl.php');
                             <div class="modal-body">
                                 <label for="newPhone" class="form-label">Viết đánh giá của bạn đi nào...</label>
                                 <input type="text" class="form-control" id="newComment" name="newComment">
+                                <input type="text" hidden="hidden" id="book-id" value="<?=$book_info['book_id']?>">
                             </div>
                             <div class="modal-footer">
-                                <button type="submit" class="btn btn-primary confirm-button" name="newComment-sm">Gửi đánh giá</button>
+                                <button type="submit" class="btn btn-primary confirm-button" id="newComment-bt" name="newComment-sm">Gửi đánh giá</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <br><br>
 
-            <div class="comment-sort">
+            <!-- <div class="comment-sort">
                 <button type="button" class="btn btn-outline-danger" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
                     Mới nhất
                 </button>
-            </div>
+            </div> -->
 
             <div class="container comments">
                 <?php

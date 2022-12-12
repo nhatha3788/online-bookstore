@@ -46,11 +46,12 @@
             $email = $_POST['newEmail'];
         }
         if(isset($_POST['change-value-account'])){
+            $name = $_POST['name'];
             $phone_number=$_POST['phone'];
             $email = $_POST['email'];
             $mess=checkValid($email,$phone_number);
             if(empty($mess)){
-                $update_account = "UPDATE customer SET phone='$phone_number', email='$email' WHERE customer_id='$customer_id' LIMIT 1";
+                $update_account = "UPDATE customer SET `name`='$name', phone='$phone_number', email='$email' WHERE customer_id='$customer_id' LIMIT 1";
                 $update_account_run = mysqli_query($conn, $update_account);
                 if($update_account_run){
                     $_SESSION['status'] = "Đổi thông tin thành công";

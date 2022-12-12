@@ -1,6 +1,5 @@
 <?php
-session_start();
-include('../../model/checkLogin_model.php');
+    include('../../controller/comment_ctl.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,34 +31,39 @@ include('../../model/checkLogin_model.php');
                     <div class="comment">
                         <p class="comment-title">NHẬN XÉT CỦA TÔI</p>
                         <?php
-                        for ($i = 0; $i < 3; $i++) {
-                            echo "<div class='a-book'>
-                            <div class='box-wrapper'>
-                                <!-- <div class='image-info'> -->
-                                <img src='../../../public/images/product/pap.jpg' alt=''>
-                                <div><strong>Pride and Prejudice</strong></div>
-                                <div><strong>Tác giả: </strong>Nguyễn Văn A</div>
-                                <div><strong>Thể loại: </strong>Thiếu nhi</div>
-                                <div><strong>Giá: </strong><span class='price'>98.000 đ</span></div>
-                                <!-- </div> -->
-                                <button class='mui-btn mui-btn--small mui-btn--primary mui-btn--fab comment-toggle' id='book$i'><i class='fa-solid fa-caret-down'></i></button>
-                            </div>
-                            <div class='box-wrapper book-comment' id='comment$i'>
-                                <table class='table table-striped'>
-                                    <thead>
-                                        <tr>
-                                            <th>Bình luận</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Nội dung rất bổ ích.</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>";
-                        }
+                        $i = 0;
+                        while($row = mysqli_fetch_array($comment_run)) {
+                                $book = "SELECT * FROM `book` WHERE book_id=$row[book_id] LIMIT 1";
+                                $book_run = mysqli_query($conn,$book);
+                                $book_info = mysqli_fetch_array($book_run);
+                                $price = number_format($book_info['price'], 0, ',', '.') . "đ";
+                                echo "<div class='a-book'>
+                                <div class='box-wrapper'>
+                                    <!-- <div class='image-info'> -->
+                                    <img src='$book_info[cover_image]' alt=''>
+                                    <div><strong>$book_info[name]</strong></div>
+                                    <div><strong>Tác giả: </strong>$book_info[author]</div>
+                                    <div><strong>Giá: </strong><span class='price'>$price</span></div>
+                                    <!-- </div> -->
+                                    <button class='mui-btn mui-btn--small mui-btn--primary mui-btn--fab comment-toggle' id='book$i'><i class='fa-solid fa-caret-down'></i></button>
+                                </div>
+                                <div class='box-wrapper book-comment' id='comment$i'>
+                                    <table class='table table-striped'>
+                                        <thead>
+                                            <tr>
+                                                <th>Bình luận</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>$row[comment]</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>";
+                            $i++;
+                            }
 
                         ?>
                     </div>
