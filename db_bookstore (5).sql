@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 08, 2022 at 06:08 AM
+-- Generation Time: Dec 12, 2022 at 12:48 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.1.12
 
@@ -41,8 +41,9 @@ CREATE TABLE `address` (
 INSERT INTO `address` (`address_id`, `address`, `is_default`, `customer_id`) VALUES
 (1, 'ĐH BK, TP HCM, VN', 1, 6),
 (2, 'sao kim, hệ mặt trời', 0, 6),
-(3, 'Hà Nội, VN', 0, 7),
-(4, 'sao thổ, hệ mặt trời', 0, 7);
+(23, 'KTX khu A dhqg', 0, 8),
+(25, 'sao thổ, hệ mặt trời', 0, 5),
+(26, 'sao kim, hệ mặt trời', 0, 10);
 
 -- --------------------------------------------------------
 
@@ -52,29 +53,19 @@ INSERT INTO `address` (`address_id`, `address`, `is_default`, `customer_id`) VAL
 
 CREATE TABLE `admin` (
   `admin_id` int(10) NOT NULL,
-  `user_name` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL
+  `email` varchar(100) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `name` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `admin`
 --
 
-INSERT INTO `admin` (`admin_id`, `user_name`, `password`) VALUES
-(1, 'admin1', '1234'),
-(2, 'admin2', 'abcd'),
-(3, 'admin3', '123abc');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `applyfor`
---
-
-CREATE TABLE `applyfor` (
-  `promotion_id` int(10) NOT NULL,
-  `book_id` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+INSERT INTO `admin` (`admin_id`, `email`, `password`, `name`) VALUES
+(1, 'admin1@gmail.com', '1234', 'Trần Hữu Phước'),
+(2, 'admin2@gmail.com', 'abcd', 'Lâm Như Ý'),
+(3, 'admin3@gmail.com', '123abc', 'Nguyễn Văn Nghĩa');
 
 -- --------------------------------------------------------
 
@@ -109,7 +100,35 @@ INSERT INTO `book` (`book_id`, `name`, `description`, `price`, `author`, `cover_
 (9, 'Life BRE A2-B1: Student Book With Web App Code And Online Workbook 2nd Edition', 'Life là bộ sách học tiếng Anh thú vị với 6 cấp độ dành cho người lớn. Dựa trên nội dung của National Geographic, Life biến quá trình học tập của bạn thành một cuộc hành trình tuyệt vời với những hình ảnh đẹp không thể cưỡng lại được.\r\n\r\nCác nội dung trong sách rất sống động và gần gũi vì được lấy ra từ những câu chuyện đời thực ở khắp mọi nơi trên thế giới, giúp cho bạn vừa có cơ hội khám phá nền văn hóa của nhiều quốc gia vừa học tiếng Anh. Kể từ năm 2015, Life đã được Bộ trưởng bộ Giáo dục chọn làm quyển sách giáo khoa Tiếng Anh cho 26 trường đại học với mục tiêu nâng cao kỹ năng tiếng Anh cho sinh viên. Life được chọn vì sách tập trung vào các vấn đề toàn cầu, bắt kịp sự phát triển của công nghệ, và quan trọng nhất là, rèn luyện được cho người học các kỹ năng cần thiết trong thế kỷ 21: sự sáng tạo, tư duy phản biện, sự hợp tác và hiểu biết về các nền văn hóa trên thế giới.\r\n\r\nLần đầu tiên, Life cho ra mắt phiên bản dành riêng cho thị trường Việt Nam.', 247000, 'John Hughes', 'https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_39154.jpg', 4, 'Kim đồng'),
 (10, 'Thinking, Fast and Slow', '', 284000, 'Daniel Kahneman', 'https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_23665.jpg', 4, 'Kim đồng'),
 (11, 'Thỏ Bảy Màu Và Những Người Nghĩ Nó Là Bạn (Tái Bản 2022)', 'Thỏ Bảy Màu là fanpage sở hữu hơn 2,6tr lượt thích trên mạng xã hội. Với hình tượng nhân vật thú vị cùng phong cách sáng tạo độc đáo, Thỏ bảy màu vẫn luôn là thu hút được số lượng lớn người quan tâm thể hiện qua nhiều bài viết với hàng chục nghìn lượt like và share. <br><br>\r\n\r\nThỏ Bảy Màu là một nhân vật hư cấu chẳng còn xa lạ gì với anh em dùng mạng xã hội với slogan “Nghe lời Thỏ, kiếp này coi như bỏ!”. <br><br>\r\n\r\nThỏ Bảy Màu đơn giản chỉ là một con thỏ trắng với sự dở hơi, ngang ngược nhưng đáng yêu vô cùng tận. Nó luôn nghĩ rằng mình không có cuộc sống và không có bạn bè. Tuy nhiên, Thỏ lại chẳng bao giờ thấy cô đơn vì đến cô đơn cũng bỏ nó mà đi.<br><br>\r\n\r\nCuốn sách là những mẩu chuyện nhỏ được ghi lại bằng tranh xoay quanh Thỏ Bảy Màu và những người nghĩ nó là bạn. Những mẩu chuyện được truyền tải rất “teen” đậm chất hài hước, châm biếm qua sự sáng tạo không kém phần “mặn mà” của tác giả càng trở nên độc đáo và thu hút.<br><br>\r\n\r\nNếu một ngày bạn lỡ cảm thấy buồn thì hãy đọc cuốn sách này để biết thế nào là cười sảng nha!\r\n', 100000, 'Huỳnh Thái Học', 'https://cdn0.fahasa.com/media/catalog/product/9/7/9786043561272.jpg', 3, 'NXB Dân Trí'),
-(12, 'Tôi Tin Tôi Có Thể Làm Được - Học Cách Làm Người', 'Bộ sách Tôi tin tôi có thể làm được gồm 4 cuốn: Học cách học tập, Học cách làm việc, Học cách ứng xử, Học cách làm người, Những điều thầy cô và cha mẹ cần biết ở thế kỉ 21. Ở Trung Quốc, bộ sách này được giới thiệu trang trọng đến các trường phổ thông, chương trình giáo dục lớn của nhà nước. Bộ sách chủ yếu hướng đến các em học sinh, nhưng cũng là tài liệu bổ ích với các bậc phụ huynh và thầy cô. Bộ sách Tôi tin tôi có thể làm được được UNESCO công nhận là tài liệu cần cho các học sinh thế kỉ 21, do những chuyên gia nổi tiếng chấp bút: <br><br>\r\n- Chu Nam Chiếu - Chuyên gia giáo dục nổi tiếng thế giới, thành viên Trung Quốc duy nhất của Hiệp hội Giáo Dục Quốc tế Thế kỉ 21. <br><br>\r\n- Tôn Vân Hiểu - Phó chủ nhiệm, chuyên gia trung tâm nghiên cứu thanh thiếu niên Trung Quốc, chuyên gia giáo dục học uy tín, nhà hoạt động tâm huyết cho thanh thiếu niên.<br><br>\r\n- Trịnh Tân Dung - Giáo sư học viện giáo dục Đại học sư phạm Bắc Kinh.\r\n- Bốc Vệ - Chuyên gia Viện nghiên cứu Báo chí và truyền thông, Viện hàn lâm khoa học Trung Quốc.', 40000, 'Tôn Vân Hiểu, Chu Nam Chiếu', 'https://cdn0.fahasa.com/media/catalog/product/i/m/image_196892.jpg', 2, 'Kim Đồng');
+(12, 'Tôi Tin Tôi Có Thể Làm Được - Học Cách Làm Người', 'Bộ sách Tôi tin tôi có thể làm được gồm 4 cuốn: Học cách học tập, Học cách làm việc, Học cách ứng xử, Học cách làm người, Những điều thầy cô và cha mẹ cần biết ở thế kỉ 21. Ở Trung Quốc, bộ sách này được giới thiệu trang trọng đến các trường phổ thông, chương trình giáo dục lớn của nhà nước. Bộ sách chủ yếu hướng đến các em học sinh, nhưng cũng là tài liệu bổ ích với các bậc phụ huynh và thầy cô. Bộ sách Tôi tin tôi có thể làm được được UNESCO công nhận là tài liệu cần cho các học sinh thế kỉ 21, do những chuyên gia nổi tiếng chấp bút: <br><br>\r\n- Chu Nam Chiếu - Chuyên gia giáo dục nổi tiếng thế giới, thành viên Trung Quốc duy nhất của Hiệp hội Giáo Dục Quốc tế Thế kỉ 21. <br><br>\r\n- Tôn Vân Hiểu - Phó chủ nhiệm, chuyên gia trung tâm nghiên cứu thanh thiếu niên Trung Quốc, chuyên gia giáo dục học uy tín, nhà hoạt động tâm huyết cho thanh thiếu niên.<br><br>\r\n- Trịnh Tân Dung - Giáo sư học viện giáo dục Đại học sư phạm Bắc Kinh.\r\n- Bốc Vệ - Chuyên gia Viện nghiên cứu Báo chí và truyền thông, Viện hàn lâm khoa học Trung Quốc.', 40000, 'Tôn Vân Hiểu, Chu Nam Chiếu', 'https://cdn0.fahasa.com/media/catalog/product/i/m/image_196892.jpg', 2, 'Kim Đồng'),
+(13, 'Charlotte Và Wilbur (Tái Bản 2018)', '\"Một cuốn sách xuất chúng dành cho thiếu nhi.\" (The Times Literary Supplement)<br><br>\r\n\r\nWilbur, chú lợn xuân cứ đinh ninh mình sẽ vui hưởng thái bình mãi trong trang trại nhà Zuckerman, thế nên, chú tưởng như phát cuồng lên được khi biết rằng người ta sẽ giết thịt chú khi mùa đông tới... Mọi hy vọng của chú, giờ đây, chỉ còn biết đổ dồn lại vào Charlotte, chị nhện xám vẫn tĩnh tại giăng mắc ở trên chuồng lợn...<br><br>\r\n\r\nCharlotte và Wilbur, câu chuyện kể về việc một con nhện đã cứu sống con lợn bạn mình như thế nào, là tác phẩm kinh điển của văn học thiếu nhi Mỹ; và tình bạn của chúng đã được hàng triệu độc giả trên thế giới cùng chia sẻ. <br><br>\r\n\r\nCharlotte và Wilbur là cuốn sách gõ vào cánh cửa tưởng tượng của tuổi thơ, với tất cả những ai đang là trẻ nhỏ và từng là trẻ nhỏ. Nó mang đến thế giới kỳ diệu mà chỉ những cô bé biết khóc vì chú lợn kẹ sắp bị giết như Fern mới thấu hiểu. Lắng đọng với nhiều tình tiết cảm động, như chuyện Fern đã chăm sóc lợn Wilbur hồi nhỏ, cuộc chia tay cuối cùng giữa Charlotte và Wilbur, và tình bạn nối tiếp với những đứa con, cháu, chắt của Charlotte sau này…', 55000, 'Nguyễn Quế Dương', 'https://salt.tikicdn.com/cache/750x750/ts/product/18/6b/39/c0202e02aab6e303a62483d9308b81f1.jpg.webp', 3, 'Nhã Nam'),
+(14, 'Hoàng Tử Bé (Tái Bản 2022)', 'ANTOINE DE SAINT-EXUPÉRY (1900 - 1944): Nhà văn, phi công Pháp nổi tiếng.<br><br>\r\n\r\nSinh tại Lyon, Pháp. Chiến tranh Thế giới thứ nhất ông theo mẹ sang Thụy Sĩ. Năm 1917, trở về Pháp, học trung học tại Paris, sau đó vào trường Mĩ thuật. Năm 1921, ông gia nhập không quân Pháp. Ngày 31.7.1944, ông lái máy bay với nhiệm vụ trinh sát và đã mất tích trên bầu trời Địa Trung Hải… Saint-Exupéry đã được vinh danh với nhiều giải thưởng văn học cao quý. Ông để lại những tác phẩm đặc sắc: Người phi công (L\'Aviateur, 1926); Chuyến thư miền Nam (Courrier Sud, 1929); Bay đêm (Vol de Nuit , 1931); Quê xứ con người (Cõi người ta, Terre des Hommes, 1939); Phi công thời chiến (Pilote de Guerre, 1942); Thư gửi một con tin (Lettre à un Otage, 1943)…\r\nNGUYỄN THÀNH LONG (1925-1991) còn có các bút danh khác là Lưu Quỳnh, Phan Minh Thảo. Sinh tại huyện Duy Xuyên, tỉnh Quảng Nam, nguyên quán ở Quy Nhơn, Bình Định, Nguyễn Thành Long là nhà văn, cây bút chuyên viết về truyện ngắn và kí, đã cho xuất\r\nbản nhiều tác phẩm văn xuôi (khoảng 14 đầu sách). Truyện ngắn Lặng lẽ Sa Pa của ông được giới thiệu trong chương trình Ngữ Văn và được giảng dạy trong nhà trường.<br><br>\r\n\r\nNgoài Hoàng tử bé, ông còn là dịch giả của “Quê xứ con người” cũng của tác giả Saint-Exupéry.<br><br>\r\n\r\nGiá sản phẩm trên Tiki đã bao gồm thuế theo luật hiện hành. Bên cạnh đó, tuỳ vào loại sản phẩm, hình thức và địa chỉ giao hàng mà có thể phát sinh thêm chi phí khác như phí vận chuyển, phụ phí hàng cồng kềnh, thuế nhập khẩu (đối với đơn hàng giao từ nước ngoài có giá trị trên 1 triệu đồng).....', 30000, 'ANTOINE DE SAINT-EXUPÉRY', 'https://salt.tikicdn.com/cache/750x750/ts/product/2b/fd/60/96a7a7b9b2a7fac4cc1600918c59b8cf.jpg.webp', 3, 'Kim Đồng'),
+(15, '5 Centimet Trên Giây', 'TOP 100 BEST SELLER – 5cm/s không chỉ là vận tốc của những cánh anh đào rơi, mà còn là vận tốc khi chúng ta lặng lẽ bước qua đời nhau, đánh mất bao cảm xúc thiết tha nhất của tình yêu. <br><br>\r\n\r\nBằng giọng văn tinh tế, truyền cảm, Năm centimet trên giây mang đến những khắc họa mới về tâm hồn và khả năng tồn tại của cảm xúc, bắt đầu từ tình yêu trong sáng, ngọt ngào của một cô bé và cậu bé.\r\n<br><br>\r\nBa giai đoạn, ba mảnh ghép, ba ngôi kể chuyện khác nhau nhưng đều xoay quanh nhân vật nam chính, người luôn bị ám ảnh bởi kí ức và những điều đã qua…\r\n<br><br>\r\nKhác với những câu chuyện cuốn bạn chạy một mạch, truyện này khó mà đọc nhanh. Ngón tay bạn hẳn sẽ ngừng lại cả trăm lần trên mỗi trang sách.\r\n<br><br>\r\nChỉ vì một cử động rất khẽ, một câu thoại, hay một xúc cảm bất chợt có thể sẽ đánh thức những điều tưởng chừng đã ngủ quên trong tiềm thức, như ngọn đèn vừa được bật sáng trong tâm trí bạn. Và rồi có lúc nó vượt quá giới hạn chịu đựng, bạn quyết định gấp cuốn sách lại chỉ để tận hưởng chút ánh sáng từ ngọn đèn, hay đơn giản là để vết thương trong lòng mình có thời gian tự tìm xoa dịu.', 60000, 'Shinkai Makoto', 'https://vnibooks.com/wp-content/uploads/2022/05/5-centimet-tren-giay.jpg.webp', 3, 'Nhà Xuất Bản Hồng Đức'),
+(16, 'Boxset Manga Đứa Con Của Thời Tiết', 'Tác phẩm chuyển thể truyện tranh từ bộ phim Anime “Đứa con của thời tiết” (Tenki no Ko) - cú hít năm 2019 của đạo diễn Makoto Shinkai. <br><br>\r\n\r\nCâu chuyện cậu thiếu niên Hodaka rời bỏ hòn đảo nhỏ xa xôi tới thành phố Tokyo sầm uất.<br><br>\r\n\r\nTại đây, cậu gặp Hina - một cô gái có sức mạnh xua tan mây mù, biến mưa thành nắng.<br><br>\r\n\r\nCùng em trai của Hina là Nagi, ba người họ mở dịch vụ “cô gái nắng” và rất đắt hàng. Ngay lúc Hodaka tưởng chừng đã tìm được chốn nương thân ở nơi thành thị này thì liên tục các biến cố bỗng ập tới, khiến ba đứa trẻ không còn cách nào khác là bỏ chạy khỏi ngôi nhà thân yêu, bỏ chạy khỏi ước mơ còn dang dở, và bỏ chạy khỏi chính số phận của mình...<br><br>\r\n\r\nNhưng liệu... mọi việc có dừng lại ở đó?\r\n<br><br>\r\nMột lần nữa, chúng ta hãy cùng theo dõi hành trình của Hodaka và cô gái nắng - Hina qua sự thể hiện đầy mới mẻ của hoạ sĩ trẻ tài năng Wataru Kubota, người đã từng vinh dự đạt giải thưởng Afternoon Four Seasons nhé.\r\n', 120000, 'Makoto Shinkai, Wataru Kubota', 'https://cdn0.fahasa.com/media/catalog/product/d/u/dua-con-cua-thoi-tiet---bia-boxset_4.jpg', 3, 'Kim Đồng');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cart`
+--
+
+CREATE TABLE `cart` (
+  `cart_id` int(10) NOT NULL,
+  `customer_id` int(10) NOT NULL,
+  `book_id` int(10) NOT NULL,
+  `quantity` int(10) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`cart_id`, `customer_id`, `book_id`, `quantity`) VALUES
+(31, 8, 6, 4),
+(32, 8, 12, 3),
+(62, 5, 14, 1),
+(64, 6, 14, 1),
+(65, 10, 15, 3);
 
 -- --------------------------------------------------------
 
@@ -118,7 +137,7 @@ INSERT INTO `book` (`book_id`, `name`, `description`, `price`, `author`, `cover_
 --
 
 CREATE TABLE `categogy` (
-  `categogy_id` int(10) NOT NULL,
+  `category_id` int(10) NOT NULL,
   `name` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -126,7 +145,7 @@ CREATE TABLE `categogy` (
 -- Dumping data for table `categogy`
 --
 
-INSERT INTO `categogy` (`categogy_id`, `name`) VALUES
+INSERT INTO `categogy` (`category_id`, `name`) VALUES
 (1, 'Tiểu Thuyết'),
 (2, 'Sách Kỹ Năng'),
 (3, 'Thiếu Nhi'),
@@ -150,10 +169,20 @@ CREATE TABLE `contain` (
 --
 
 INSERT INTO `contain` (`contain_id`, `oder_id`, `book_id`, `quantity`) VALUES
-(1, 2, 2, 1),
-(2, 1, 9, 1),
-(3, 3, 2, 1),
-(4, 3, 8, 1);
+(33, 19, 8, 2),
+(34, 19, 15, 2),
+(35, 20, 8, 2),
+(36, 20, 15, 2),
+(37, 20, 1, 1),
+(38, 21, 8, 2),
+(39, 21, 15, 2),
+(40, 21, 1, 1),
+(41, 21, 14, 2),
+(74, 33, 14, 1),
+(75, 34, 13, 1),
+(76, 35, 14, 1),
+(77, 36, 15, 3),
+(78, 37, 15, 3);
 
 -- --------------------------------------------------------
 
@@ -180,9 +209,10 @@ INSERT INTO `customer` (`customer_id`, `email`, `pass`, `name`, `phone`, `code`,
 (2, 'customer2', 'abcxyz', 'Trần Mai Uyên', '', '', 0),
 (3, 'customer3', 'ijklou', 'Đỗ Thanh Thảo', '', '', 0),
 (4, 'customer4', '123oip', 'Vũ Hoàng Sơn', '', '', 0),
-(5, 'customer5', '000000', 'Nguyễn Anh Khôi', '', '', 0),
-(6, 'ntdat0103@gmail.com', '123', 'Nguyễn Tiến Đạt', '0123456788', '1fa2d817fca2d9bd0483f51c1d239286', 1),
-(7, 'kingharemtad@gmail.com', '123', 'Nguyễn Tiến Đạt', '0706099978', '3ae8821bb401629178b491bc0c6f105a', 1);
+(5, 'customer5', '000000', 'Nguyễn Anh Khôi', '', '', 1),
+(6, 'ntdat0103@gmail.com', '123', 'Tiến Đạt', '0123456788', '1fa2d817fca2d9bd0483f51c1d239286', 1),
+(8, 'danhsonha113@gmail.com', 'yassuo', 'Hà', '0706099978', '051df70c02eb08500893bdee1bc7992e', 1),
+(10, 'kingharemtad@gmail.com', '123', 'Cao Tuấn Kiệt', '0123456788', 'abc99243cf392f8533f646f665227760', 1);
 
 -- --------------------------------------------------------
 
@@ -194,8 +224,8 @@ CREATE TABLE `oder` (
   `oder_id` int(10) NOT NULL,
   `cost` double NOT NULL,
   `status` int(2) NOT NULL DEFAULT 1 COMMENT '1 la dang xu li, 2 la hoan tat',
-  `oder_date` date NOT NULL,
-  `payment_method` varchar(50) NOT NULL,
+  `oder_date` date NOT NULL DEFAULT current_timestamp(),
+  `payment_method` varchar(255) NOT NULL,
   `customer_id` int(10) NOT NULL,
   `address_id` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -205,33 +235,14 @@ CREATE TABLE `oder` (
 --
 
 INSERT INTO `oder` (`oder_id`, `cost`, `status`, `oder_date`, `payment_method`, `customer_id`, `address_id`) VALUES
-(1, 247000, 1, '2022-12-02', 'momo', 6, 1),
-(2, 79000, 2, '2022-12-01', 'momo', 6, 1),
-(3, 106000, 1, '2022-12-08', 'vnpay', 6, 2);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `promotion`
---
-
-CREATE TABLE `promotion` (
-  `promotion_id` int(10) NOT NULL,
-  `name` varchar(225) NOT NULL,
-  `content` varchar(225) NOT NULL,
-  `banner` varchar(225) NOT NULL,
-  `admin_id` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `promotion`
---
-
-INSERT INTO `promotion` (`promotion_id`, `name`, `content`, `banner`, `admin_id`) VALUES
-(1, 'BỐC THĂM TRÚNG THƯỞNG\r\nMEGA SALE 2022', 'https://cdn0.fahasa.com/media/wysiwyg/Thang-11-2022/Mega%20sale_LDP_Banner_01_web.jpg', 'https://cdn0.fahasa.com/media/wysiwyg/Thang-11-2022/Mega%20sale_LDP_Icanconnect_Mainbanner.jpg', 1),
-(2, 'Giáng sinh', 'https://cdn0.fahasa.com/media/wysiwyg/Duy-VHDT/noel-2022/Giangsinh_T11_banner_1200x411.jpg', 'https://cdn0.fahasa.com/media/wysiwyg/Duy-VHDT/noel-2022/Giangsinh_T11_1920x750.jpg', 1),
-(3, 'Black Friday', 'https://cdn0.fahasa.com/media/wysiwyg/Thang-11-2022/Black%20friday_Cyber%20monday_LDP_Banner_01.jpg', 'https://cdn0.fahasa.com/media/wysiwyg/Thang-11-2022/Black%20friday_Cyber%20monday_LDP_mainbanner_web.jpg', 1),
-(4, 'Vẽ', 'https://cdn0.fahasa.com/media/wysiwyg/Duy-VHDT/HOA-CU/HoaCuQuy4_banner_Banner1.jpg', 'https://cdn0.fahasa.com/media/wysiwyg/Duy-VHDT/HOA-CU/HoaCuQuy4_banner_1920x750_2.jpg', 1);
+(19, 194000, 1, '2022-12-11', 'Thanh toán khi nhận hàng', 6, 2),
+(20, 463000, 1, '2022-12-11', 'Ví MOMO', 6, 1),
+(21, 523000, 1, '2022-12-11', 'Thanh toán khi nhận hàng', 6, 2),
+(33, 30000, 1, '2022-12-11', 'Thanh toán khi nhận hàng', 6, 2),
+(34, 55000, 1, '2022-12-11', 'Thanh toán khi nhận hàng', 6, 2),
+(35, 50000, 1, '2022-12-11', 'Thanh toán khi nhận hàng', 5, 25),
+(36, 200000, 1, '2022-12-12', 'Internet Banking', 10, 26),
+(37, 200000, 1, '2022-12-12', 'Internet Banking', 10, 26);
 
 -- --------------------------------------------------------
 
@@ -251,8 +262,20 @@ CREATE TABLE `rate` (
 
 INSERT INTO `rate` (`customer_id`, `book_id`, `comment`) VALUES
 (6, 1, 'Thật tuyệt vời!! Tôi chưa từng đọc cuốn sách nào hay như vậy !!'),
-(7, 1, 'Cũng thường thôi.'),
-(5, 1, 'Cây Brooklyn này mua ở đây được nhỉ mn ???');
+(3, 13, 'good'),
+(4, 8, 'hmmmm'),
+(2, 2, 'old but gold'),
+(4, 3, 'wonderfull'),
+(6, 13, '10 đỉm nha, quá là thít nunnn'),
+(6, 13, 'Hay'),
+(6, 13, 'tạm'),
+(6, 6, 'Được đó chớ'),
+(6, 12, 'Nói chung thì tạm ổn'),
+(5, 14, 'tàm tạm'),
+(6, 8, 'cứ sao sao á'),
+(6, 8, 'cứ sao sao á'),
+(6, 5, 'Hay đó'),
+(10, 14, 'nào ý nhỉ');
 
 --
 -- Indexes for dumped tables
@@ -272,13 +295,6 @@ ALTER TABLE `admin`
   ADD PRIMARY KEY (`admin_id`);
 
 --
--- Indexes for table `applyfor`
---
-ALTER TABLE `applyfor`
-  ADD KEY `apply1` (`promotion_id`),
-  ADD KEY `apply2` (`book_id`);
-
---
 -- Indexes for table `book`
 --
 ALTER TABLE `book`
@@ -286,10 +302,18 @@ ALTER TABLE `book`
   ADD KEY `book1` (`category_id`);
 
 --
+-- Indexes for table `cart`
+--
+ALTER TABLE `cart`
+  ADD PRIMARY KEY (`cart_id`),
+  ADD KEY `cart1` (`customer_id`),
+  ADD KEY `cart2` (`book_id`);
+
+--
 -- Indexes for table `categogy`
 --
 ALTER TABLE `categogy`
-  ADD PRIMARY KEY (`categogy_id`);
+  ADD PRIMARY KEY (`category_id`);
 
 --
 -- Indexes for table `contain`
@@ -314,13 +338,6 @@ ALTER TABLE `oder`
   ADD KEY `oder2` (`address_id`);
 
 --
--- Indexes for table `promotion`
---
-ALTER TABLE `promotion`
-  ADD PRIMARY KEY (`promotion_id`),
-  ADD KEY `promotion1` (`admin_id`);
-
---
 -- Indexes for table `rate`
 --
 ALTER TABLE `rate`
@@ -335,7 +352,7 @@ ALTER TABLE `rate`
 -- AUTO_INCREMENT for table `address`
 --
 ALTER TABLE `address`
-  MODIFY `address_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `address_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `admin`
@@ -347,37 +364,37 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `book`
 --
 ALTER TABLE `book`
-  MODIFY `book_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `book_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT for table `cart`
+--
+ALTER TABLE `cart`
+  MODIFY `cart_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
 
 --
 -- AUTO_INCREMENT for table `categogy`
 --
 ALTER TABLE `categogy`
-  MODIFY `categogy_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `category_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `contain`
 --
 ALTER TABLE `contain`
-  MODIFY `contain_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `contain_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
 
 --
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `customer_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `customer_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `oder`
 --
 ALTER TABLE `oder`
-  MODIFY `oder_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT for table `promotion`
---
-ALTER TABLE `promotion`
-  MODIFY `promotion_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `oder_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- Constraints for dumped tables
@@ -390,37 +407,31 @@ ALTER TABLE `address`
   ADD CONSTRAINT `address1` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `applyfor`
---
-ALTER TABLE `applyfor`
-  ADD CONSTRAINT `apply1` FOREIGN KEY (`promotion_id`) REFERENCES `promotion` (`promotion_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `apply2` FOREIGN KEY (`book_id`) REFERENCES `book` (`book_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
 -- Constraints for table `book`
 --
 ALTER TABLE `book`
-  ADD CONSTRAINT `book1` FOREIGN KEY (`category_id`) REFERENCES `categogy` (`categogy_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `book1` FOREIGN KEY (`category_id`) REFERENCES `categogy` (`category_id`);
+
+--
+-- Constraints for table `cart`
+--
+ALTER TABLE `cart`
+  ADD CONSTRAINT `cart1` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `cart2` FOREIGN KEY (`book_id`) REFERENCES `book` (`book_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `contain`
 --
 ALTER TABLE `contain`
   ADD CONSTRAINT `contain1` FOREIGN KEY (`oder_id`) REFERENCES `oder` (`oder_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `contain2` FOREIGN KEY (`book_id`) REFERENCES `book` (`book_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `contain2` FOREIGN KEY (`book_id`) REFERENCES `book` (`book_id`);
 
 --
 -- Constraints for table `oder`
 --
 ALTER TABLE `oder`
-  ADD CONSTRAINT `oder1` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `oder1` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`),
   ADD CONSTRAINT `oder2` FOREIGN KEY (`address_id`) REFERENCES `address` (`address_id`);
-
---
--- Constraints for table `promotion`
---
-ALTER TABLE `promotion`
-  ADD CONSTRAINT `promotion1` FOREIGN KEY (`admin_id`) REFERENCES `admin` (`admin_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `rate`
