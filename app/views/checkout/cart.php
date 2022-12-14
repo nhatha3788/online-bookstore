@@ -1,5 +1,5 @@
 <?php
-        include('../../controller/cart_ctl.php');
+include('../../controller/cart_ctl.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,12 +25,12 @@
             <form action="../../controller/checkout_ctl.php" method="post">
                 <div class="container">
                     <div class="row cart-info">
-                        <div class="col-8 column-content">
+                        <div class="col-xl-8 column-content">
                             <div class="order">
-                                <div class="subtitle">Giỏ hàng: <?= $number_item?> sản phẩm</div>
+                                <div class="subtitle">Giỏ hàng: <?= $number_item ?> sản phẩm</div>
                                 <div class="section-wrapper">
                                     <?php
-                                    while($row = mysqli_fetch_array($db_cart_run)){
+                                    while ($row = mysqli_fetch_array($db_cart_run)) {
                                         include '../components/checkout-item.php';
                                     }
                                     ?>
@@ -65,9 +65,9 @@
                                 <div class="subtitle">Địa chỉ nhận hàng</div>
                                 <div class="section-wrapper">
                                     <fieldset id="group2">
-                                    <?php
-                                    while($row = mysqli_fetch_array($db_address_run)){
-                                        echo "
+                                        <?php
+                                        while ($row = mysqli_fetch_array($db_address_run)) {
+                                            echo "
                                         <div class='form-check'>
                                             <input class='form-check-input' type='radio' name='address' value='$row[address_id]' checked>
                                             <label class='form-check-label' for='address'>
@@ -75,38 +75,38 @@
                                             </label>
                                         </div>
                                         ";
-                                    }
-                                    ?>
+                                        }
+                                        ?>
                                     </fieldset>
                                 </div>
                             </div>
-                            <input hidden="hidden" type="text"  id="total-price" name="all-total-price" value=<?= $total_price;?>>
+                            <input hidden="hidden" type="text" id="total-price" name="all-total-price" value=<?= $total_price; ?>>
                         </div>
-                        <div class="col-4 column-content">
+                        <div class="col-xl-4 column-content">
                             <div class="summary">
                                 <div class="subtitle">Đơn hàng</div>
                                 <div class="section-wrapper">
                                     <div style="display: flex; flex-direction:column;row-gap:10px;">
                                         <div style="display: flex; justify-content:space-between;">
-                                            <input hidden="hidden" type="number"  id="it-price" value=<?= $total_price;?>>
-                                            <strong>Thành tiền: </strong><span id="dp-it-price"><?= number_format($total_price, 0, ',', '.') . "đ";?></span>
+                                            <input hidden="hidden" type="number" id="it-price" value=<?= $total_price; ?>>
+                                            <strong>Thành tiền: </strong><span id="dp-it-price"><?= number_format($total_price, 0, ',', '.') . "đ"; ?></span>
                                         </div>
                                         <div style="display: flex; justify-content:space-between;">
                                             <strong>Phí dịch vụ: </strong><span id="dp-sv-price"></span>
                                         </div>
                                         <div style="display: flex; justify-content:space-between;">
-                                            <strong>Tổng số tiền: </strong><span id="dp-total-price"><?= number_format($total_price, 0, ',', '.') . "đ";?></span>
+                                            <strong>Tổng số tiền: </strong><span id="dp-total-price"><?= number_format($total_price, 0, ',', '.') . "đ"; ?></span>
                                         </div>
                                     </div>
                                     <div class="mui-divider"></div>
                                     <div class="gogo">
-                                    <?php
-                                        if($number_item > 0){
-                                            echo "<button class='mui-btn mui-btn--danger' type='submit' name='buy'>Thanh toán</button>";
-                                        }else{
-                                            echo "<button class='mui-btn mui-btn--danger' type='button'>Thanh toán</button>";
+                                        <?php
+                                        if ($number_item > 0) {
+                                            echo "<button class='btn btn-danger' type='submit' name='buy'>Thanh toán</button>";
+                                        } else {
+                                            echo "<button class='btn btn-danger' type='button'>Thanh toán</button>";
                                         }
-                                    ?>
+                                        ?>
                                     </div>
 
                                 </div>
@@ -126,12 +126,12 @@
                         </div>
                     </div>
                     <div class="row checkout-button">
-                        <button type="button" class="mui-btn mui-btn--accent home">Tiếp tục mua hàng</button> 
+                        <button type="button" class='btn btn-warning home'>Tiếp tục mua hàng</button>
                         <?php
-                        if($number_item > 0){
-                            echo "<button class='mui-btn mui-btn--danger' type='submit' name='buy'>Xác nhận thanh toán</button>";
-                        }else{
-                            echo "<button class='mui-btn mui-btn--danger' type='button'>Xác nhận thanh toán</button>";
+                        if ($number_item > 0) {
+                            echo "<button class='btn btn-danger' type='submit' name='buy'>Xác nhận thanh toán</button>";
+                        } else {
+                            echo "<button class='btn btn-danger' type='button'>Xác nhận thanh toán</button>";
                         }
                         ?>
                     </div>

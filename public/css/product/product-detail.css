@@ -1,12 +1,12 @@
 body {
-  background-color: #cbb57d;
+  background-color: #f1f6f5;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
 .main-container {
-  background-color: rgb(137, 136, 136);
+  background-color: #f1f6f5;
   padding: 5px 0;
 }
 
@@ -24,7 +24,8 @@ body {
 
 .book-cover img {
   object-fit: contain;
-  width: 360px;
+  /* width: 360px; */
+  width: 100%;
 }
 
 .product-detail {
@@ -36,7 +37,7 @@ body {
 .book-title-quantity {
   display: flex;
   flex-direction: column;
-  row-gap: 20px;
+  row-gap: 1em;
 }
 
 .price-sold {
@@ -48,10 +49,10 @@ body {
   width: 50%;
 }
 .rating {
-  font-size: 12px;
+  font-size: 1.2em;
   color: #f6a500;
-  display: flex;
-  gap: 10px;
+  /* display: flex;
+  gap: 10px; */
 }
 
 .sold-quantity {
@@ -69,13 +70,13 @@ body {
 }
 
 .book-price {
-  font-size: 35px;
+  font-size: 2.5em;
   color: brown;
   font-weight: 700;
 }
 
 .book-title {
-  font-size: 35px;
+  font-size: 2.5em;
   font-weight: 600;
 }
 
@@ -97,6 +98,11 @@ body {
   padding: 10px 20px;
 }
 
+.comments {
+  margin: 0;
+  padding-left: 0;
+}
+
 .comment-sort {
   border-bottom: 1px solid black;
   margin: 10px 0;
@@ -115,4 +121,47 @@ body {
 
 i {
   margin-right: 10px;
+}
+
+@media (max-width: 992px) {
+}
+
+@media (max-width: 768px) {
+  .row .col-5 {
+    display: none;
+  }
+  .buy-button {
+    justify-content: center;
+  }
+  .buy-button button {
+    flex: 1;
+  }
+  .book-cover img {
+    height: 300px;
+  }
+  .book-title {
+    text-align: center;
+  }
+  .book-title-quantity .rating {
+    text-align: center;
+  }
+  .sub-price {
+    font-size: 2em;
+  }
+  .suggested-item_name {
+    font-size: 1.5em;
+  }
+}
+
+@media (max-width: 576px) {
+  .book-cover img {
+    height: unset;
+  }
+  .buy-button {
+    flex-direction: column;
+    gap: 5px;
+  }
+  .price-sold {
+    flex-direction: column;
+  }
 }
