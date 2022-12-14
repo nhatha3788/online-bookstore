@@ -1,5 +1,5 @@
 <?php
-    include('../../controller/comment_ctl.php');
+include('../../controller/comment_ctl.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,20 +32,18 @@
                         <p class="comment-title">NHẬN XÉT CỦA TÔI</p>
                         <?php
                         $i = 0;
-                        while($row = mysqli_fetch_array($comment_run)) {
-                                $book = "SELECT * FROM `book` WHERE book_id=$row[book_id] LIMIT 1";
-                                $book_run = mysqli_query($conn,$book);
-                                $book_info = mysqli_fetch_array($book_run);
-                                $price = number_format($book_info['price'], 0, ',', '.') . "đ";
-                                echo "<div class='a-book'>
+                        while ($row = mysqli_fetch_array($comment_run)) {
+                            $book = "SELECT * FROM `book` WHERE book_id=$row[book_id] LIMIT 1";
+                            $book_run = mysqli_query($conn, $book);
+                            $book_info = mysqli_fetch_array($book_run);
+                            $price = number_format($book_info['price'], 0, ',', '.') . "đ";
+                            echo "<div class='a-book'>
                                 <div class='box-wrapper'>
-                                    <!-- <div class='image-info'> -->
                                     <img src='$book_info[cover_image]' alt=''>
                                     <div><strong>$book_info[name]</strong></div>
                                     <div><strong>Tác giả: </strong>$book_info[author]</div>
                                     <div><strong>Giá: </strong><span class='price'>$price</span></div>
-                                    <!-- </div> -->
-                                    <button class='mui-btn mui-btn--small mui-btn--primary mui-btn--fab comment-toggle' id='book$i'><i class='fa-solid fa-caret-down'></i></button>
+                                    <i class='fa-solid fa-chevron-down comment-toggle icon-button' id='book$i'></i>
                                 </div>
                                 <div class='box-wrapper book-comment' id='comment$i'>
                                     <table class='table table-striped'>
@@ -63,7 +61,7 @@
                                 </div>
                             </div>";
                             $i++;
-                            }
+                        }
 
                         ?>
                     </div>

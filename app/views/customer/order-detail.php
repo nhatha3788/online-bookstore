@@ -46,13 +46,14 @@ include('../../controller/orderDetail_ctl.php');
                                     <p><?php echo "TEL: " . $phone; ?></p>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col">
-                            <div class="col-content">
-                                <p class="detail-title">PHƯƠNG THỨC THANH TOÁN</p>
-                                <p><?php echo $payment_method; ?></p>
+                            <div class="col">
+                                <div class="col-content">
+                                    <p class="detail-title">PHƯƠNG THỨC THANH TOÁN</p>
+                                    <p><?php echo $payment_method; ?></p>
+                                </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
                 <div class="order-view-product">

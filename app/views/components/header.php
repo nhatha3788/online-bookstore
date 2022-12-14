@@ -6,12 +6,15 @@
             </div>
             <div class="menu-search">
                 <!-- <button type="button" data-bs-toggle="dropdown" aria-expanded="false"> -->
-                <img src="../../../public/images/header/menu.png" alt="" class="header-icon menu-toggle">
+                <div class="menu-toggle icon-button">
+                    <img src="../../../public/images/header/menu.png" alt="" class="header-icon  animate">
+                </div>
+
                 <!-- </button> -->
                 <form style="position: relative;" method="GET" action="../customer/home.php">
-                    <button type="submit" class="search-button">
-                        <img src="../../../public/images/header/search.png" alt="" width="20px" height="20px">
-                    </button>
+                    <!-- <button type="submit" class="search-button">
+                        <img src="../../../public/images/header/search.png" alt="" width="20px" height="20px"> 
+                    </button> -->
                     <input type="text" class="form-control" id="search" name="search" placeholder="Tìm kiếm sản phẩm">
                 </form>
             </div>
@@ -26,11 +29,11 @@
                         ";
                 } else {
                     echo "
-                        <a href='../checkout/cart.php' class='position-relative'><img src='../../../public/images/header/cart.png' alt='cart' class='header-icon'>
+                        <a href='../checkout/cart.php' class='position-relative icon-button'><img src='../../../public/images/header/cart.png' alt='cart' class='header-icon'>
                         </a>
                         ";
                     echo "
-                        <a href='../customer/account.php' class='profile-link'><img class='header-icon' src='../../../public/images/header/user.png' alt='profile'></a>
+                        <a href='../customer/account.php' class='profile-link icon-button'><img class='header-icon' src='../../../public/images/header/user.png' alt='profile'></a>
                         ";
                 }
                 ?>
@@ -39,23 +42,23 @@
         </div>
     </div>
 
-    <div class="menu">
+    <div class="menu animate">
         <div class="container">
-            <div class="row text-center">
+            <div class="row">
                 <div class="col">
-                    <h5>Sách ngoại văn</h5>
-                    <ul class="category-list">
+                    <h5>Danh mục sách</h5>
+                    <ul>
                         <li class="category-item">
-                        <a href="home.php?category_id=1" class="category-item__link">Tiểu thuyết</a>
+                            <a href="home.php?category_id=1" class="category-item__link">Tiểu thuyết</a>
                         </li>
                         <li class="category-item">
-                        <a href="home.php?category_id=2" class="category-item__link">Sách kĩ năng</a>
+                            <a href="home.php?category_id=2" class="category-item__link">Sách kĩ năng</a>
                         </li>
                         <li class="category-item">
-                        <a href="home.php?category_id=3" class="category-item__link">Thiếu nhi</a>
+                            <a href="home.php?category_id=3" class="category-item__link">Thiếu nhi</a>
                         </li>
                         <li class="category-item">
-                        <a href="home.php?category_id=4" class="category-item__link">Sách nước ngoài</a>
+                            <a href="home.php?category_id=4" class="category-item__link">Sách nước ngoài</a>
                         </li>
                     </ul>
                 </div>

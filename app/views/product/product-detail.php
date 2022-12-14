@@ -24,7 +24,7 @@ include('../../controller/product_ctl.php');
             <div class="product-detail">
                 <div class="container">
                     <div class="row">
-                        <div class="col-5 book-cover">
+                        <div class="col-md-5 book-cover">
                             <img src="<?php echo $book_info['cover_image']; ?>" alt="">
                         </div>
                         <div class="col book-title-quantity">
@@ -61,22 +61,22 @@ include('../../controller/product_ctl.php');
                         <div class="col">
                             <div class="buy-button">
                                 <?php
-                                    if(isset($_SESSION['customer_id'])){
-                                        ?>
-                                        
-                                        <button type="button" class="btn btn-outline-danger" id="addcart-bt" onclick="addCart(<?php echo $book_info['book_id'] ?>)"><i class="fa-solid fa-cart-plus"></i>Thêm vào giỏ hàng</button>
-                                        <button type="button" class="btn btn-danger" id="buynow" onclick="buynow(<?php echo $book_info['book_id'] ?>)">Mua ngay</button>
+                                if (isset($_SESSION['customer_id'])) {
+                                ?>
 
-                                        <?php
-                                        
-                                    }else{
-                                        ?>
-                                        
-                                        <a href="../LoginAndSignup/login.php"><button type="button" class="btn btn-outline-danger"><i class="fa-solid fa-cart-plus"></i>Thêm vào giỏ hàng</button></a>
-                                        <a href="../LoginAndSignup/login.php"><button type="button" class="btn btn-danger">Mua ngay</button></a>
+                                    <button type="button" class="btn btn-outline-danger" id="addcart-bt" onclick="addCart(<?php echo $book_info['book_id'] ?>)"><i class="fa-solid fa-cart-plus"></i>Thêm vào giỏ hàng</button>
+                                    <button type="button" class="btn btn-danger" id="buynow" onclick="buynow(<?php echo $book_info['book_id'] ?>)">Mua ngay</button>
 
-                                        <?php
-                                    }
+                                <?php
+
+                                } else {
+                                ?>
+
+                                    <a href="../LoginAndSignup/login.php"><button type="button" class="btn btn-outline-danger"><i class="fa-solid fa-cart-plus"></i>Thêm vào giỏ hàng</button></a>
+                                    <a href="../LoginAndSignup/login.php"><button type="button" class="btn btn-danger">Mua ngay</button></a>
+
+                                <?php
+                                }
                                 ?>
 
                             </div>
@@ -120,7 +120,7 @@ include('../../controller/product_ctl.php');
                             <div class="modal-body">
                                 <label for="newPhone" class="form-label">Viết đánh giá của bạn đi nào...</label>
                                 <input type="text" class="form-control" id="newComment" name="newComment">
-                                <input type="text" hidden="hidden" id="book-id" value="<?=$book_info['book_id']?>">
+                                <input type="text" hidden="hidden" id="book-id" value="<?= $book_info['book_id'] ?>">
                             </div>
                             <div class="modal-footer">
                                 <button type="submit" class="btn btn-primary confirm-button" id="newComment-bt" name="newComment-sm">Gửi đánh giá</button>
@@ -129,7 +129,7 @@ include('../../controller/product_ctl.php');
                     </div>
                 </div>
             </div>
-            <br><br>
+            <br>
 
             <!-- <div class="comment-sort">
                 <button type="button" class="btn btn-outline-danger" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
