@@ -49,7 +49,7 @@ include('../../controller/ctmAccount_ctl.php');
                                 unset($_SESSION['status']);
                             }
                             ?>
-                            <div class="col">
+                            <!-- <div class="col">
                                 <p class="address-subtitle">
                                     Địa chỉ nhận hàng mặc định:
                                 </p>
@@ -61,7 +61,7 @@ include('../../controller/ctmAccount_ctl.php');
                                     ?>
                                 </p>
 
-                            </div>
+                            </div> -->
                             <div class="col">
                                 <div class="address-table">
                                     <div>
